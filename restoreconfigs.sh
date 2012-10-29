@@ -1,3 +1,3 @@
 cp ~/configs/.vimrc ~/.vimrc
-cp ~/configs/.vimrc ~/.bashrc
+cp ~/configs/.bashrc ~/.bashrc
 cp ~/configs/.tmux.conf ~/.tmux.conf
