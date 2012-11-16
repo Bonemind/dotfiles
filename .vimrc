@@ -24,6 +24,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
+set backspace=indent,eol,start
+
 "turn off vi compatibility
 set nocompatible
 
@@ -31,9 +33,17 @@ set nocompatible
 set number
 
 "key remaps
-:map <silent> <C-a> :if &number <Bar> set relativenumber <Bar> else <Bar> set number <Return> <Esc>
 nnoremap ; :
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
 
+nnoremap <C-a> :call NumberToggle()<cr>
+nnoremap <C-q> :execute '!C:\arduinouploader\ArduinoUploader.exe "' . expand('%:p') . '" 1 COM' 
 
 "make pathogen work
 call pathogen#infect()
@@ -59,3 +69,8 @@ set hlsearch
 set noswapfile
 set nobackup
 set nowb
+
+"Syntax defines
+au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.ino set filetype=arduino
+
