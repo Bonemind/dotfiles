@@ -1,9 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/bonemind/werk/srv/vhosts/mohw/srv/www/application/modules/guestbook/library/BlueMoonIt/GuestbookModule/Message'
-let g:netrw_dirhist_2='/home/bonemind/werk/svn/BlueMoonIt/jttemplate/site/trunk/source/templates/janne-timmers/modules/content/pages/layouts/controllers'
-let g:netrw_dirhist_3='/home/bonemind/werk/srv/vhosts/mohw/srv/www/application/modules/rcon/views/scripts/index'
-let g:netrw_dirhist_4='/home/bonemind/test'
-let g:netrw_dirhist_5='/home/bonemind/werk/svn/BlueMoonIt/keg/trunk'
-let g:netrw_dirhist_6='/home/bonemind/werk/srv/vhosts/jannetimmers.dev/etc'
-let g:netrw_dirhist_7='/home/bonemind/werk/srv/vhosts/jannetimmers.dev/etc/apache'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/bonemind/werk/svn/BlueMoonIt/keg/trunk/database/developing'
+let g:netrw_dirhist_2='/etc/php5'
+let g:netrw_dirhist_3='/etc/php5/apache2'
