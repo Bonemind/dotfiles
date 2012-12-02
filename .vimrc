@@ -1,4 +1,4 @@
-"Syntax highlighting on
+"syntax highlighting on
 syntax on
 
 "Background color/style
@@ -8,7 +8,7 @@ set background=dark
 colorscheme desert
 
 "Set .rb as ruby file 
-au BufNewFile,BufRead *.rb set filetype=ruby
+
 
 "buffers can now exist in background
 set hidden
@@ -42,8 +42,16 @@ function! NumberToggle()
   endif
 endfunc
 
-nnoremap <C-a> :call NumberToggle()<cr>
+nnoremap <leader>a :call NumberToggle()<cr>
 nnoremap <C-q> :execute '!C:\arduinouploader\ArduinoUploader.exe "' . expand('%:p') . '" 1 COM' 
+nnoremap <silent> <leader>q :TlistToggle<CR>
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <leader><left> <C-w>h
+nnoremap <silent> <leader>h <C-w>h
+nnoremap <silent> <leader>l <C-w>l
+nnoremap <silent> <leader>j <C-w>j
+nnoremap <silent> <leader>k <C-w>k
+nnoremap <silent> <leader>v :vsplit<cr>
 
 "make pathogen work
 call pathogen#infect()

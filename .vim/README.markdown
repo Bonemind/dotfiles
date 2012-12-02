@@ -1,160 +1,104 @@
-                   ,
-                  / \,,_  .'|
-               ,{{| /}}}}/_.'            _____________________________________________
-              }}}}` '{{'  '.            /                                             \
-            {{{{{    _   ;, \          /                Gentlemen,                     \
-         ,}}}}}}    /o`\  ` ;)        |                                                |
-        {{{{{{   /           (        |                 this is ...                    |
-        }}}}}}   |            \       |                                                |
-       {{{{{{{{   \            \      |                                                |
-       }}}}}}}}}   '.__      _  |     |    _____             __             __  _      |
-       {{{{{{{{       /`._  (_\ /     |   / ___/__  ______  / /_____ ______/ /_(_)____ |
-        }}}}}}'      |    //___/   --=:   \__ \/ / / / __ \/ __/ __ `/ ___/ __/ / ___/ |
-    jgs `{{{{`       |     '--'       |  ___/ / /_/ / / / / /_/ /_/ (__  ) /_/ / /__   |
-         }}}`                         | /____/\__, /_/ /_/\__/\__,_/____/\__/_/\___/   |
-                                      |      /____/                                    |
-                                      |                                               /
-                                       \_____________________________________________/
+The NERD Tree
+=============
 
+Intro
+-----
 
+The NERD tree allows you to explore your filesystem and to open files and
+directories. It presents the filesystem to you in the form of a tree which you
+manipulate with the keyboard and/or mouse. It also allows you to perform
+simple filesystem operations.
 
+The following features and functionality are provided by the NERD tree:
 
-Syntastic is a syntax checking plugin that runs files through external syntax
-checkers and displays any resulting errors to the user. This can be done on
-demand, or automatically as files are saved. If syntax errors are detected, the
-user is notified and is happy because they didn't have to compile their code or
-execute their script to find them.
-
-At the time of this writing, syntax checking plugins exist for applescript, c,
-coffee, cpp, css, cucumber, cuda, docbk, erlang, eruby, fortran,
-gentoo_metadata, go, haml, haskell, html, javascript, json, less, lua, matlab,
-perl, php, puppet, python, rst, ruby, sass/scss, sh, tcl, tex, vala, xhtml,
-xml, xslt, yaml, zpt
-
-Screenshot
-----------
-
-Below is a screenshot showing the methods that Syntastic uses to display syntax
-errors.  Note that, in practise, you will only have a subset of these methods
-enabled.
-
-![Screenshot 1](https://github.com/scrooloose/syntastic/raw/master/_assets/screenshot_1.png)
-
-1. Errors are loaded into the location list for the corresponding window.
-2. When the cursor is on a line containing an error, the error message is echoed in the command window.
-3. Signs are placed beside lines with errors - note that warnings are displayed in a different color.
-4. There is a configurable statusline flag you can include in your statusline config.
-5. Hover the mouse over a line containing an error and the error message is displayed as a balloon.
-6. (not shown) Highlighting errors with syntax highlighting. Erroneous parts of lines can be highlighted.
+  * Files and directories are displayed in a hierarchical tree structure
+  * Different highlighting is provided for the following types of nodes:
+    * files
+    * directories
+    * sym-links
+    * windows .lnk files
+    * read-only files
+    * executable files
+  * Many (customisable) mappings are provided to manipulate the tree:
+    * Mappings to open/close/explore directory nodes
+    * Mappings to open files in new/existing windows/tabs
+    * Mappings to change the current root of the tree
+    * Mappings to navigate around the tree
+    * ...
+  * Directories and files can be bookmarked.
+  * Most NERD tree navigation can also be done with the mouse
+  * Filtering of tree content (can be toggled at runtime)
+    * custom file filters to prevent e.g. vim backup files being displayed
+    * optional displaying of hidden files (. files)
+    * files can be "turned off" so that only directories are displayed
+  * The position and size of the NERD tree window can be customised
+  * The order in which the nodes in the tree are listed can be customised.
+  * A model of your filesystem is created/maintained as you explore it. This
+    has several advantages:
+    * All filesystem information is cached and is only re-read on demand
+    * If you revisit a part of the tree that you left earlier in your
+      session, the directory nodes will be opened/closed as you left them
+  * The script remembers the cursor position and window position in the NERD
+    tree so you can toggle it off (or just close the tree window) and then
+    reopen it (with NERDTreeToggle) the NERD tree window will appear exactly
+    as you left it
+  * You can have a separate NERD tree for each tab, share trees across tabs,
+    or a mix of both.
+  * By default the script overrides the default file browser (netw), so if
+    you :edit a directory a (slighly modified) NERD tree will appear in the
+    current window
+  * A programmable menu system is provided (simulates right clicking on a node)
+    * one default menu plugin is provided to perform basic filesytem
+      operations (create/delete/move/copy files/directories)
+  * There's an API for adding your own keymappings
 
 Installation
 ------------
 
-Installing syntastic is easy but first you need to have the pathogen plugin installed.  If you already
-have pathogen working then skip Step 1 and go to Step 2.
-
-Step 1: Install pathogen.vim
-----------------------------
-
-First I'll show you how to install tpope's [pathogen.vim](https://github.com/tpope/vim-pathogen) so that 
-it's easy to install syntastic.  Do this in your Terminal so that you get the pathogen.vim file 
-and the directories it needs:
-
-    mkdir -p ~/.vim/autoload ~/.vim/bundle; \
-    curl -so ~/.vim/autoload/pathogen.vim \
-        https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-
-Next you *need to add this* to your ~/.vimrc:
-
-        call pathogen#infect()
-
-Step 2: Install syntastic as a pathogen bundle
-----------------------------------------------
-
-You now have pathogen installed and can put syntastic into ~/.vim/bundle like this:
-    
+[pathogen.vim](https://github.com/tpope/vim-pathogen) is the recommended way to install nerdtree.
 
     cd ~/.vim/bundle
-    git clone https://github.com/scrooloose/syntastic.git
+    git clone https://github.com/scrooloose/nerdtree.git
 
-Quit vim and start it back up to reload it, then type:
-
-    :Helptags
-
-If you get an error when you do this, then you probably didn't install pathogen right.  Go back to
-step 1 and make sure you did the following:
-
-1. Created both the ~/.vim/autoload and ~/.vim/bundle directories.
-2. Added the "call pathogen#infect()" line to your ~/.vimrc file
-3. Did the git clone of syntastic inside ~/.vim/bundle
-4. Have permissions to access all of these directories.
+Then reload vim, run `:helptags`, and check out `:help NERD_tree.txt`.
 
 
-Google group
-------------
-
-To get information or make suggestions check out the [google group](https://groups.google.com/group/vim-syntastic).
-
-
-FAQ
+Faq
 ---
 
-__Q. I installed syntastic but it isn't reporting any errors ...__
+__Q. Can I have the nerdtree on every tab automatically?__
 
-A. The most likely reason is that the syntax checker that it requires isn't installed. For example: python requires either `flake8`, `pyflakes` or `pylint` to be installed and in `$PATH`. To see which executable is required, just look in `syntax_checkers/<filetype>.vim`.  Note that aliases do not work; the actual executable must be available in your `$PATH`.  Symbolic links are okay.
+A. Nope. If this is something you want then chances are you aren't using tabs
+   and buffers as they were intended to be used. Read this
+   http://stackoverflow.com/questions/102384/using-vims-tabs-like-buffers
 
-Another reason it could fail is that the error output for the syntax checker may have changed. In this case, make sure you have the latest version of the syntax checker installed. If it still fails then create an issue - or better yet, create a pull request.
+   If you are interested in this behaviour then consider [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
 
-__Q. How can I jump between the different errors without using the location list at the bottom of the window?__
+__Q. How can I open a NERDTree automatically when vim starts up?__
 
-A. Vim provides several built in commands for this. See `:help :lnext` and `:help :lprev`.
+A. Stick this in your vimrc: `autocmd vimenter * NERDTree`
 
-If you use these commands a lot then you may want to add shortcut mappings to your vimrc, or install something like [unimpaired](https://github.com/tpope/vim-unimpaired) - which provides such mappings (among other things).
+__Q. How can I open a NERDTree automatically when vim starts up if no files were specified?__
+
+A. Stick this in your vimrc `autocmd vimenter * if !argc() | NERDTree | endif`
+
+__Q. How can I close vim if the only window left open is a NERDTree?__
+
+A. Stick this in your vimrc:
+
+   `autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif`
+
 
 Changelog
 ---------
-2.3.0 (16-feb-2012)
 
-  * Add syntastic_loc_list_height option
-  * Allow errors to have a "subtype" that is signed differently to standard
-    errors. Currently geared towards differentiating style errors from
-    syntax errors. Currently implemented for phpcs (technosophos).
-  * New checkers for:
-    * yaml
-    * haxe (davidB)
-    * ocaml (edwintorok)
-    * pylint (parantapa)
-    * rust (cjab)
-  * Updates to existing checkers:
-    * jslint
-    * jshint (gillesruppert)
-    * fortran (bmattern)
-    * sass
-    * html (darcyparker)
-    * coffee (darcyparker)
-    * docbk (darcyparker)
-    * xml
-    * xslt
-    * less (irrationalfab)
-    * php (AD7six, technosophos)
-    * cuda
-    * python (mitchellh, pneff)
-    * perl (Anthony Carapetis)
-    * c (naoina, zsprackett)
-    * puppet (frimik)
+4.2.0 (2011-12-28)
 
-2.2.0 (24-dec-2011)
+ * Add NERDTreeDirArrows option to make the UI use pretty arrow chars instead of the old +~| chars to define the tree structure (sickill)
+ * shift the syntax highlighting out into its own syntax file (gnap) * add some mac specific options to the filesystem menu - for macvim only (andersonfreitas)
+ * Add NERDTreeMinimalUI option to remove some non functional parts of the nerdtree ui (camthompson)
+ * tweak the behaviour of :NERDTreeFind - see :help :NERDTreeFind for the new behaviour (benjamingeiger)
+ * if no name is given to :Bookmark, make it default to the name of the target file/dir (minyoung)
+ * use 'file' completion when doing copying, create, and move operations (EvanDotPro)
+ * lots of misc bug fixes (paddyoloughlin, sdewald, camthompson, Vitaly Bogdanov, AndrewRadev, mathias, scottstvnsn, kml, wycats, me RAWR!)
 
-  * only do syntax checks when files are saved (not when first opened) - add g:syntastic_check_on_open option to get the old behavior back
-  * bug fix with echoing error messages; fixes incompatability with cmd-t (datanoise)
-  * dont allow warnings to mask errors when signing/echoing errors (ashikase)
-  * auto close location list when leaving buffer. (millermedeiros)
-  * update errors appropriately when :SyntasticToggleMode is called
-  * updates/fixes to existing checkers:
-    * javascript/jshint (millermedeiros)
-    * javascript/jslint
-    * c (kongo2002)
-  * Support for new filetypes:
-    * JSON (millermedeiros, tocer)
-    * rst (reStructuredText files) (JNRowe)
-    * gentoo-metadata (JNRowe)
