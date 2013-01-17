@@ -52,6 +52,7 @@ nnoremap <silent> <leader>l <C-w>l
 nnoremap <silent> <leader>j <C-w>j
 nnoremap <silent> <leader>k <C-w>k
 nnoremap <silent> <leader>v :vsplit<cr>
+imap jj <Esc>
 
 "make pathogen work
 call pathogen#infect()
