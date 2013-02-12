@@ -52,7 +52,10 @@ nnoremap <silent> <leader>l <C-w>l
 nnoremap <silent> <leader>j <C-w>j
 nnoremap <silent> <leader>k <C-w>k
 nnoremap <silent> <leader>v :vsplit<cr>
+nnoremap <silent> <leader>n :set nonumber!<cr>
 imap jj <Esc>
+cnoreabbrev W w
+cnoreabbrev Q q
 
 "make pathogen work
 call pathogen#infect()
