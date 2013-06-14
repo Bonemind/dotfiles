@@ -67,6 +67,16 @@ nnoremap <silent> <leader>v :vsplit<cr>
 nnoremap <silent> <leader>n :set nonumber!<cr>
 nnoremap <silent> <leader>p :set paste!<cr>
 
+nnoremap <Up> <NOP>
+nnoremap <Down> <NOP>
+nnoremap <Left> <NOP>
+nnoremap <Right> <NOP>
+
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
