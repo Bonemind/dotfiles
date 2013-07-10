@@ -41,6 +41,9 @@ let g:NERDTreeWinPos = "right"
 "Taglist
 au VimEnter * TlistOpen
 
+"Indent-guides
+autocmd VimEnter * :IndentGuidesEnable
+
 "turn on line numbers
 set number
 
