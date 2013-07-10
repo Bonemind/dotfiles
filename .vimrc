@@ -91,9 +91,9 @@ cnoreabbrev Q q
 "Set windows font
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
+    set guifont=Inconsolata-g:h10:i:cANSI\ 12
   elseif has("gui_win32")
-    set guifont=Inconsolata:h11:cANSI
+    set guifont=Consolas:h11:cANSI
   endif
 endif
 
