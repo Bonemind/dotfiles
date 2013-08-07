@@ -69,6 +69,11 @@ nnoremap <silent> <leader>k <C-w>k
 nnoremap <silent> <leader>v :vsplit<cr>
 nnoremap <silent> <leader>n :set nonumber!<cr>
 nnoremap <silent> <leader>p :set paste!<cr>
+nnoremap <silent> H ^
+nnoremap <silent> L $
+
+"Open vimrc in vertical split
+nnoremap <silent> <leader>ev :vsplit $MYVIMRC<cr>
 
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
@@ -79,12 +84,13 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+inoremap <esc> <NOP>
 
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
 
-imap jj <Esc>
+imap jj <c-c>
 cnoreabbrev W w
 cnoreabbrev Q q
 
@@ -136,4 +142,4 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
-echo ">^.^<"
+set statusline=%F%r%=%4l\/%-4L\ \ %y
