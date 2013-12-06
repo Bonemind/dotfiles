@@ -1,6 +1,7 @@
 "make pathogen work
 call pathogen#infect()
 call pathogen#incubate()
+call pathogen#helptags()
 filetype off
 
 "syntax highlighting on
