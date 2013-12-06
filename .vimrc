@@ -10,7 +10,7 @@ syntax on
 set background=dark
 
 "Setting the default colorscheme
-colorscheme wombat
+colorscheme molokai
 
 "buffers can now exist in background
 set hidden
@@ -36,10 +36,10 @@ set laststatus=2
 
 "NERDTree
 au VimEnter * NERDTree
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 
-"Taglist
-au VimEnter * TlistOpen
+"DetectIndent
+autocmd BufReadPost *:DetectIndent
 
 "Indent-guides
 autocmd VimEnter * :IndentGuidesEnable
@@ -58,9 +58,10 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>a :call NumberToggle()<cr>
-" nnoremap <C-q> :execute '!C:\arduinouploader\ArduinoUploader.exe "' . expand('%:p') . '" 1 COM' 
+
 nnoremap <silent> <leader>q :TlistToggle<CR>
 nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <leader>g :GundoToggle<CR>
 nnoremap <silent> <leader><left> <C-w>h
 nnoremap <silent> <leader>h <C-w>h
 nnoremap <silent> <leader>l <C-w>l
@@ -73,7 +74,7 @@ nnoremap <silent> H ^
 nnoremap <silent> L $
 
 "Open vimrc in vertical split
-nnoremap <silent> <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <silent> <leader>ev :edit $MYVIMRC<cr>
 
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
@@ -120,6 +121,7 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set scrolloff=8
 
 "turn off useless clutter files
 set noswapfile
