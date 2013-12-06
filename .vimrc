@@ -58,10 +58,10 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>a :call NumberToggle()<cr>
-
 nnoremap <silent> <leader>q :TlistToggle<CR>
 nnoremap <silent> <leader>e :NERDTreeToggle<CR>
 nnoremap <silent> <leader>g :GundoToggle<CR>
+nnoremap <silent> <leader>f :CtrlP<CR>
 nnoremap <silent> <leader><left> <C-w>h
 nnoremap <silent> <leader>h <C-w>h
 nnoremap <silent> <leader>l <C-w>l
