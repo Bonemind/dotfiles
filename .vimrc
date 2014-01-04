@@ -36,8 +36,8 @@ set nocompatible
 set laststatus=2
 
 "NERDTree
-au VimEnter * NERDTree
-let g:NERDTreeWinPos = "left"
+"pau VimEnter * NERDTree
+"plet g:NERDTreeWinPos = "left"
 
 "DetectIndent
 autocmd BufReadPost *:DetectIndent
