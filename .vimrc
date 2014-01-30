@@ -36,11 +36,18 @@ set nocompatible
 set laststatus=2
 
 "NERDTree
-"pau VimEnter * NERDTree
-"plet g:NERDTreeWinPos = "left"
+let g:NERDTreeWinPos = 'left'
+
+"Unite
+let g:unite_enable_start_insert = 1
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight = 10
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
 
 "DetectIndent
-autocmd BufReadPost *:DetectIndent
+autocmd BufReadPost * :DetectIndent
 
 "Indent-guides
 autocmd VimEnter * :IndentGuidesEnable
@@ -71,6 +78,11 @@ nnoremap <silent> <leader>k <C-w>k
 nnoremap <silent> <leader>v :vsplit<cr>
 nnoremap <silent> <leader>n :set nonumber!<cr>
 nnoremap <silent> <leader>p :set paste!<cr>
+nnoremap <silent> <leader>ur :Unite file_rec<cr>
+nnoremap <silent> <leader>uf :Unite file<cr>
+nnoremap <silent> <leader>uh :Unite file_mru<cr>
+nnoremap <silent> <leader>u :Unite buffer<cr>
+
 nnoremap <silent> H ^
 nnoremap <silent> L $
 
@@ -145,4 +157,10 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
+"Statusline
 set statusline=%F%r%=%4l\/%-4L\ \ %y
+
+"Modelines
+set modeline
+set modelines=5
+
