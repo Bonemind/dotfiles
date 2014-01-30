@@ -89,6 +89,9 @@ nnoremap <silent> L $
 "Open vimrc in vertical split
 nnoremap <silent> <leader>ev :edit $MYVIMRC<cr>
 
+"Open hosts file
+nnoremap <silent> <leader>eh :edit C:/Windows/System32/drivers/etc/hosts<cr>
+
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
@@ -164,3 +167,15 @@ set statusline=%F%r%=%4l\/%-4L\ \ %y
 set modeline
 set modelines=5
 
+let g:acp_behaviorJavaEclimLength = 1
+function MeetsForJavaEclim(context)
+  return g:acp_behaviorJavaEclimLength >= 0 &&
+        \ a:context =~ '\k\.\k\{' . g:acp_behaviorJavaEclimLength . ',}$'
+endfunction
+let g:acp_behavior = {
+    \ 'java': [{
+      \ 'command': "\<c-x>\<c-u>",
+      \ 'completefunc' : 'eclim#java#complete#CodeComplete',
+      \ 'meets'        : 'MeetsForJavaEclim',
+    \ }]
+  \ }
