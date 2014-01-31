@@ -22,10 +22,9 @@ filetype plugin on
 filetype indent on 
 
 "Set omnifunc libraries
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+" autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 
 set backspace=indent,eol,start
 
@@ -46,6 +45,11 @@ let g:unite_winheight = 10
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
+"NeoComplCache
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_min_syntax_length = 1
+
+let g:EclimCompletionMethod = 'omnifunc'
 "DetectIndent
 autocmd BufReadPost * :DetectIndent
 
@@ -65,7 +69,7 @@ function! NumberToggle()
  endif
 endfunc
 
-nnoremap <leader>a :call NumberToggle()<cr>
+nnoremap <silent> <leader>a :call NumberToggle()<cr>
 nnoremap <silent> <leader>q :TlistToggle<CR>
 nnoremap <silent> <leader>e :NERDTreeToggle<CR>
 nnoremap <silent> <leader>g :GundoToggle<CR>
@@ -175,15 +179,18 @@ set statusline=%F%r%=%4l\/%-4L\ \ %y
 set modeline
 set modelines=5
 
-let g:acp_behaviorJavaEclimLength = 1
-function MeetsForJavaEclim(context)
-  return g:acp_behaviorJavaEclimLength >= 0 &&
-        \ a:context =~ '\k\.\k\{' . g:acp_behaviorJavaEclimLength . ',}$'
-endfunction
-let g:acp_behavior = {
-    \ 'java': [{
-      \ 'command': "\<c-x>\<c-u>",
-      \ 'completefunc' : 'eclim#java#complete#CodeComplete',
-      \ 'meets'        : 'MeetsForJavaEclim',
-    \ }]
-  \ }
+"Set working directory to current file
+autocmd BufEnter * silent! lcd %:p:h
+
+" let g:acp_behaviorPhpEclimLength = 1
+" function MeetsForPhpEclim(context)
+"   return g:acp_behaviorPhpEclimLength >= 0 &&
+"         \ a:context =~ '\k\.\k\{' . g:acp_behaviorPhpEclimLength . ',}$'
+" endfunction
+" let g:acp_behavior = {
+"     \ 'php': [{
+"       \ 'command': ""\<c-x>\<c-u>",
+"       \ 'completefunc' : 'eclim#php#complete#CodeComplete',
+"       \ 'meets'        : 'MeetsForPhpEclim',
+"     \ }]
+"   \ }
