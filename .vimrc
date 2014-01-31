@@ -62,7 +62,7 @@ function! NumberToggle()
     set number
   else
     set relativenumber
-  endif
+ endif
 endfunc
 
 nnoremap <leader>a :call NumberToggle()<cr>
@@ -82,6 +82,8 @@ nnoremap <silent> <leader>ur :Unite file_rec<cr>
 nnoremap <silent> <leader>uf :Unite file<cr>
 nnoremap <silent> <leader>uh :Unite file_mru<cr>
 nnoremap <silent> <leader>u :Unite buffer<cr>
+"Scratch buffer
+nnoremap <silent> <leader>s :Sscratch<cr>
 
 nnoremap <silent> H ^
 nnoremap <silent> L $
@@ -108,8 +110,14 @@ nnoremap <C-P> :call PhpDocSingle()<CR>
 vnoremap <C-P> :call PhpDocRange()<CR> 
 
 imap jj <c-c>
+
+"Some command remaps to not have to pay attention
 cnoreabbrev W w
+cnoreabbrev Wa wa
+cnoreabbrev WA wa
 cnoreabbrev Q q
+cnoreabbrev Qa qa
+cnoreabbrev QA qa
 
 "Set windows font
 if has("gui_running")
