@@ -60,7 +60,6 @@ autocmd VimEnter * :IndentGuidesEnable
 set number
 
 "key remaps
-nnoremap ; :
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
