@@ -182,15 +182,3 @@ set modelines=5
 "Set working directory to current file
 autocmd BufEnter * silent! lcd %:p:h
 
-" let g:acp_behaviorPhpEclimLength = 1
-" function MeetsForPhpEclim(context)
-"   return g:acp_behaviorPhpEclimLength >= 0 &&
-"         \ a:context =~ '\k\.\k\{' . g:acp_behaviorPhpEclimLength . ',}$'
-" endfunction
-" let g:acp_behavior = {
-"     \ 'php': [{
-"       \ 'command': ""\<c-x>\<c-u>",
-"       \ 'completefunc' : 'eclim#php#complete#CodeComplete',
-"       \ 'meets'        : 'MeetsForPhpEclim',
-"     \ }]
-"   \ }
