@@ -96,6 +96,13 @@ nnoremap <silent> <leader><leader>pra :ProjectRefreshAll<cr>
 nnoremap <silent> <leader><leader>pl :ProjectList<cr>
 let g:EclimCompletionMethod = 'omnifunc'
 
+"Tab indents
+nnoremap <silent> <Tab> >>
+vnoremap <silent> <Tab> >gv
+nnoremap <silent> <S-Tab> <<
+vnoremap <silent> <S-Tab> <gv
+
+
 "Emmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,php EmmetInstall
