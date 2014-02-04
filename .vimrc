@@ -48,6 +48,7 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 "NeoComplCache
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_min_syntax_length = 1
+let g:neocomplcache_max_list = 20
 
 let g:EclimCompletionMethod = 'omnifunc'
 "DetectIndent
@@ -87,6 +88,14 @@ nnoremap <silent> <leader>uh :Unite file_mru<cr>
 nnoremap <silent> <leader>u :Unite buffer<cr>
 "Scratch buffer
 nnoremap <silent> <leader>s :Sscratch<cr>
+
+"Eclim binds
+nnoremap <silent> <leader><leader>pts :ProjectsTree<cr>
+nnoremap <silent> <leader><leader>pt :ProjectTree<cr>
+nnoremap <silent> <leader><leader>pr :ProjectRefresh<cr>
+nnoremap <silent> <leader><leader>pra :ProjectRefreshAll<cr>
+nnoremap <silent> <leader><leader>pl :ProjectList<cr>
+
 
 nnoremap <silent> H ^
 nnoremap <silent> L $
