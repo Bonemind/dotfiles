@@ -50,7 +50,6 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_min_syntax_length = 1
 let g:neocomplcache_max_list = 20
 
-let g:EclimCompletionMethod = 'omnifunc'
 "DetectIndent
 autocmd BufReadPost * :DetectIndent
 
@@ -95,10 +94,19 @@ nnoremap <silent> <leader><leader>pt :ProjectTree<cr>
 nnoremap <silent> <leader><leader>pr :ProjectRefresh<cr>
 nnoremap <silent> <leader><leader>pra :ProjectRefreshAll<cr>
 nnoremap <silent> <leader><leader>pl :ProjectList<cr>
+let g:EclimCompletionMethod = 'omnifunc'
 
+"Emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,php EmmetInstall
+let g:user_emmet_leader_key='<leader><leader>e'
 
+"binds to make HL behave like a stronger h and l 
 nnoremap <silent> H ^
 nnoremap <silent> L $
+vnoremap <silent> H ^
+vnoremap <silent> L $
+
 
 "Open vimrc in vertical split
 nnoremap <silent> <leader>ev :edit $MYVIMRC<cr>
