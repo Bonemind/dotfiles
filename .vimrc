@@ -88,6 +88,11 @@ nnoremap <silent> <leader>u :Unite buffer<cr>
 "Scratch buffer
 nnoremap <silent> <leader>s :Sscratch<cr>
 
+"Switch to previous and nex buffer
+nnoremap <silent> <leader>bn :bn<cr>
+nnoremap <silent> <leader>bp :bp<cr>
+nnoremap <silent> <leader>bd :bd<cr>
+
 "Eclim binds
 nnoremap <silent> <leader><leader>pts :ProjectsTree<cr>
 nnoremap <silent> <leader><leader>pt :ProjectTree<cr>
