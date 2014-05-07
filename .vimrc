@@ -50,9 +50,6 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_min_syntax_length = 1
 let g:neocomplcache_max_list = 20
 
-"DetectIndent
-autocmd BufReadPost * :DetectIndent
-
 "Indent-guides
 autocmd VimEnter * :IndentGuidesEnable
 
@@ -209,4 +206,16 @@ set modelines=5
 
 "Set working directory to current file
 autocmd BufEnter * silent! lcd %:p:h
+
+"Certain filetypes shouldn't be processed by detectindent
+fun! DetectIndentExlude()
+ " Don't strip on these filetypes
+ if &ft =~ 'php\|html'
+  return
+ endif
+ :DetectIndent
+endfun
+
+"DetectIndent
+autocmd BufReadPost * call DetectIndentExlude()
 
