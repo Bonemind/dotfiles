@@ -30,8 +30,8 @@ set backspace=indent,eol,start
 "turn off vi compatibility
 set nocompatible
 
-"NERDTree
-let g:NERDTreeWinPos = 'left'
+"Statusbar
+set laststatus=2
 
 "Unite
 let g:unite_enable_start_insert = 1
@@ -50,6 +50,7 @@ let g:neocomplcache_max_list = 20
 autocmd VimEnter * :IndentGuidesEnable
 
 "turn on line numbers
+set number
 set relativenumber
 
 "key remaps
@@ -61,26 +62,21 @@ function! NumberToggle()
  endif
 endfunc
 
-nnoremap <silent> <leader>a :call NumberToggle()<cr>
 nnoremap <silent> <leader>q :TlistToggle<CR>
-nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <leader>e :VimFilerExplorer<CR>
+nnoremap <silent> - :VimFiler<CR>
 nnoremap <silent> <leader>g :GundoToggle<CR>
 nnoremap <silent> <leader>f :CtrlPMixed<CR>
-nnoremap <silent> <leader><left> <C-w>h
+nnoremap <silent> <leader>p :CtrlP<CR>
 nnoremap <silent> <leader>h <C-w>h
 nnoremap <silent> <leader>l <C-w>l
 nnoremap <silent> <leader>j <C-w>j
 nnoremap <silent> <leader>k <C-w>k
 nnoremap <silent> <leader>v :vsplit<cr>
-nnoremap <silent> <leader>n :set nonumber!<cr>
-nnoremap <silent> <leader>p :set paste!<cr>
-nnoremap <silent> <leader>ur :Unite file_rec<cr>
-nnoremap <silent> <leader>uf :Unite file<cr>
-nnoremap <silent> <leader>uh :Unite file_mru<cr>
+nnoremap <silent> <leader><leader>ur :Unite file_rec<cr>
+nnoremap <silent> <leader><leader>uf :Unite file<cr>
+nnoremap <silent> <leader><leader>uh :Unite file_mru<cr>
 nnoremap <silent> <leader>u :Unite buffer<cr>
-
-"Scratch buffer
-nnoremap <silent> <leader>s :Sscratch<cr>
 
 "Switch to previous and nex buffer
 nnoremap <silent> <leader>bn :bn<cr>
@@ -195,7 +191,7 @@ set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
 "Statusline
-set statusline=%F%r%=%4l\/%-4L\ \ %y
+" set statusline=%F%r%=%4l\/%-4L\ \ %y
 
 "Modelines
 set modeline
@@ -217,6 +213,9 @@ endfun
 autocmd BufReadPost * call DetectIndentExlude()
 
 "Choosewin
-nnoremap - <Plug>(choosewin)
+nmap <leader><leader>s <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 let g:choosewin_blink_on_land = 1
+
+"VimFiler
+let g:vimfiler_safe_mode_by_default = 0	
