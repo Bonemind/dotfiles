@@ -11,7 +11,10 @@ syntax on
 set background=dark
 
 "Setting the default colorscheme
-colorscheme molokai
+colorscheme solarized
+
+"Solarized background color toggle
+call togglebg#map("<leader><leader>bg")
 
 "buffers can now exist in background
 set hidden
@@ -21,18 +24,11 @@ filetype on
 filetype plugin on
 filetype indent on 
 
-"Set omnifunc libraries
-" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-" autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-
+"Make backspace behave in a sane way
 set backspace=indent,eol,start
 
 "turn off vi compatibility
 set nocompatible
-
-"Obviousmode
-set laststatus=2
 
 "NERDTree
 let g:NERDTreeWinPos = 'left'
@@ -54,7 +50,7 @@ let g:neocomplcache_max_list = 20
 autocmd VimEnter * :IndentGuidesEnable
 
 "turn on line numbers
-set number
+set relativenumber
 
 "key remaps
 function! NumberToggle()
@@ -82,6 +78,7 @@ nnoremap <silent> <leader>ur :Unite file_rec<cr>
 nnoremap <silent> <leader>uf :Unite file<cr>
 nnoremap <silent> <leader>uh :Unite file_mru<cr>
 nnoremap <silent> <leader>u :Unite buffer<cr>
+
 "Scratch buffer
 nnoremap <silent> <leader>s :Sscratch<cr>
 
@@ -117,12 +114,13 @@ vnoremap <silent> H ^
 vnoremap <silent> L $
 
 
-"Open vimrc in vertical split
+"Open vimrc in
 nnoremap <silent> <leader>ev :edit $MYVIMRC<cr>
 
 "Open hosts file
 nnoremap <silent> <leader>eh :edit C:/Windows/System32/drivers/etc/hosts<cr>
 
+"NOP arrow keys
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
@@ -134,10 +132,10 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 inoremap <esc> <NOP>
 
+"Comment current function
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-P> :call PhpDocSingle()<CR> 
-vnoremap <C-P> :call PhpDocRange()<CR> 
 
+"Use jj instead of escape 
 imap jj <c-c>
 
 "Some command remaps to not have to pay attention
@@ -156,7 +154,6 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   endif
 endif
-
 
 "turn on line and column markers
 set cursorline
@@ -210,7 +207,7 @@ autocmd BufEnter * silent! lcd %:p:h
 "Certain filetypes shouldn't be processed by detectindent
 fun! DetectIndentExlude()
  " Don't strip on these filetypes
- if &ft =~ 'php\|html'
+ if &ft =~ 'php\|html\|js'
   return
  endif
  :DetectIndent
@@ -219,3 +216,7 @@ endfun
 "DetectIndent
 autocmd BufReadPost * call DetectIndentExlude()
 
+"Choosewin
+nnoremap - <Plug>(choosewin)
+let g:choosewin_overlay_enable = 1
+let g:choosewin_blink_on_land = 1
