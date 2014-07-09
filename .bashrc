@@ -10,3 +10,4 @@ export PATH=$PATH:/usr/sbin
 export PATH=$PATH:/usr/bin
 export PATH=$PATH:/sbin/
 export PATH=$PATH:/usr/lib32
+export TERM="xterm-256color"
