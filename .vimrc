@@ -1,8 +1,57 @@
 "make pathogen work
-call pathogen#infect()
-call pathogen#incubate()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#incubate()
+"call pathogen#helptags()
 filetype off
+
+if has('vim_starting')
+set nocompatible               " Be iMproved
+
+" Required:
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ciaranm/detectindent'
+NeoBundle 'rafiks/dfrank_util'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'vim-scripts/Gundo'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'vim-scripts/indexer.tar.gz'
+NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'vexxor/phpdoc.vim'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tsaleh/vim-supertab'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'bling/vim-bufferline'
+NeoBundle 't9md/vim-choosewin'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'vim-scripts/vimprj'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 "syntax highlighting on
 syntax on
@@ -11,7 +60,11 @@ syntax on
 set background=dark
 
 "Setting the default colorscheme
-colorscheme solarized
+if has('gui_running')
+ colorscheme solarized
+else
+ colorscheme molokai
+endif
 
 "Solarized background color toggle
 call togglebg#map("<leader><leader>bg")
