@@ -28,12 +28,9 @@ NeoBundle 'tsaleh/vim-supertab'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'bling/vim-bufferline'
-NeoBundle 't9md/vim-choosewin'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'Shougo/vimfiler.vim'
@@ -49,7 +46,13 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'dbakker/vim-projectroot'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'james9909/stackanswers.vim'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'sheerun/vim-polyglot'
 
 call neobundle#end()
 
@@ -122,17 +125,13 @@ function! NumberToggle()
  endif
 endfunc
 
-nnoremap <silent> <leader>q :TlistToggle<CR>
+nnoremap <silent> <leader>q :TagbarToggle<CR>
 nnoremap <silent> <leader>e :VimFilerExplorer<CR>
 nnoremap <silent> - :VimFiler<CR>
 nnoremap <silent> <leader>g :GundoToggle<CR>
-nnoremap <silent> <leader>f :CtrlPMixed<CR>
-nnoremap <silent> <leader>p :CtrlP<CR>
+nnoremap <silent> <leader>f :CtrlP<CR>
 nnoremap <silent> <leader>v :vsplit<cr>
-nnoremap <silent> <leader><leader>ur :Unite file_rec<cr>
-nnoremap <silent> <leader><leader>uf :Unite file<cr>
-nnoremap <silent> <leader><leader>uh :Unite file_mru<cr>
-nnoremap <silent> <leader>u :Unite buffer<cr>
+nnoremap <silent> <leader>b :CtrlPBuffer<cr>
 
 " Window management
 
@@ -188,6 +187,9 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 inoremap <esc> <NOP>
 
+"NOP S-k
+nnoremap <s-k> <NOP>
+
 "Comment current function
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 
@@ -219,6 +221,8 @@ set cursorcolumn
 set autoindent
 set copyindent
 set smartindent
+set tabstop=3
+set shiftwidth=3
 
 "search related settings
 set showcmd
@@ -260,7 +264,7 @@ autocmd BufEnter * silent! lcd %:p:h
 "Certain filetypes shouldn't be processed by detectindent
 fun! DetectIndentExlude()
  " Don't strip on these filetypes
- if &ft =~ 'php\|html\|js\|ruby'
+ if &ft =~ 'php\|html\|js\|ruby\|javascript'
   return
  endif
  :DetectIndent
@@ -317,3 +321,14 @@ map <leader>rl :VroomRunLastTest<CR>
 let g:syntastic_ruby_checkers = ['mri']
 
 set conceallevel=0
+
+"Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_section_c = '%t'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tagbar#enabled = 1
+
+"Add a sudo write command
+command! Wsudo w !sudo tee > /dev/null %
