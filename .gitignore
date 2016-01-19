@@ -1,2 +1,4 @@
 .vim/bundle
-.config/fish/fish_history
+*fish_history
+*fishd.*
+node_modules/
