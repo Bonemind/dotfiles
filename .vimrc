@@ -1,67 +1,66 @@
 filetype off
 
 if has('vim_starting')
-set nocompatible               " Be iMproved
-
-" Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+ set nocompatible               " Be iMproved
 endif
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+set runtimepath^=~/.vim/bundle/dein.vim/repos/github.com/Shougo/dein.vim
 
 " Let NeoBundle manage NeoBundle
 " Required:
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'ciaranm/detectindent'
-NeoBundle 'rafiks/dfrank_util'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'vim-scripts/Gundo'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'vim-scripts/indexer.tar.gz'
-NeoBundle 'Shougo/neocomplcache.vim'
-NeoBundle 'vexxor/phpdoc.vim'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tsaleh/vim-supertab'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'justinmk/vim-sneak'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'vim-scripts/vimprj'
-NeoBundle 'lervag/vimtex'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'vim-scripts/Diablo3'
-NeoBundle 'benmills/vimux'
-NeoBundle 'skalnik/vim-vroom'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'rhysd/vim-textobj-ruby'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'dbakker/vim-projectroot'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'james9909/stackanswers.vim'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'othree/yajs.vim'
-NeoBundle 'sheerun/vim-polyglot'
+call dein#begin(expand('~/.cache/dein'))
+call dein#add('Shougo/dein.vim')
+call dein#add('tpope/vim-commentary')
+call dein#add('kien/ctrlp.vim')
+call dein#add('ciaranm/detectindent')
+call dein#add('rafiks/dfrank_util')
+call dein#add('mattn/emmet-vim')
+call dein#add('vim-scripts/Gundo')
+call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('vim-scripts/indexer.tar.gz')
+call dein#add('Shougo/neocomplcache.vim')
+call dein#add('vexxor/phpdoc.vim')
+call dein#add('tpope/vim-repeat')
+call dein#add('tsaleh/vim-supertab')
+call dein#add('tpope/vim-surround')
+call dein#add('scrooloose/syntastic')
+call dein#add('godlygeek/tabular')
+call dein#add('Shougo/unite.vim')
+call dein#add('tpope/vim-abolish')
+call dein#add('bling/vim-airline')
+call dein#add('tpope/vim-fugitive')
+call dein#add('justinmk/vim-sneak')
+call dein#add('Shougo/vimfiler.vim')
+call dein#add('vim-scripts/vimprj')
+call dein#add('lervag/vimtex')
+call dein#add('tpope/vim-rails')
+call dein#add('tpope/vim-bundler')
+call dein#add('Shougo/neosnippet')
+call dein#add('vim-scripts/Diablo3')
+call dein#add('benmills/vimux')
+call dein#add('skalnik/vim-vroom')
+call dein#add('kana/vim-textobj-user')
+call dein#add('rhysd/vim-textobj-ruby')
+call dein#add('christoomey/vim-tmux-navigator')
+call dein#add('dbakker/vim-projectroot')
+call dein#add('airblade/vim-gitgutter')
+call dein#add('james9909/stackanswers.vim')
+call dein#add('majutsushi/tagbar')
+call dein#add('osyo-manga/vim-over')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('othree/yajs.vim')
+call dein#add('sheerun/vim-polyglot')
+call dein#add('unblevable/quick-scope')
+call dein#add('roman/golden-ratio')
 
-call neobundle#end()
+call dein#end()
 
 " Required:
 filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
-NeoBundleCheck
 
 "syntax highlighting on
 syntax on
@@ -332,3 +331,6 @@ let g:airline#extensions#tagbar#enabled = 1
 
 "Add a sudo write command
 command! Wsudo w !sudo tee > /dev/null %
+
+"quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
