@@ -28,7 +28,6 @@ call dein#add('tpope/vim-repeat')
 call dein#add('tsaleh/vim-supertab')
 call dein#add('tpope/vim-surround')
 call dein#add('scrooloose/syntastic')
-call dein#add('godlygeek/tabular')
 call dein#add('Shougo/unite.vim')
 call dein#add('tpope/vim-abolish')
 call dein#add('bling/vim-airline')
@@ -40,7 +39,7 @@ call dein#add('lervag/vimtex')
 call dein#add('tpope/vim-rails')
 call dein#add('tpope/vim-bundler')
 call dein#add('Shougo/neosnippet')
-call dein#add('vim-scripts/Diablo3')
+call dein#add('danilo-augusto/vim-afterglow')
 call dein#add('benmills/vimux')
 call dein#add('skalnik/vim-vroom')
 call dein#add('kana/vim-textobj-user')
@@ -56,6 +55,7 @@ call dein#add('othree/yajs.vim')
 call dein#add('sheerun/vim-polyglot')
 call dein#add('unblevable/quick-scope')
 call dein#add('roman/golden-ratio')
+call dein#add('junegunn/vim-easy-align')
 
 call dein#end()
 
@@ -73,9 +73,9 @@ set background=dark
 
 "Setting the default colorscheme
 if has('gui_running')
- colorscheme diablo3
+ colorscheme afterglow
 else
- colorscheme diablo3
+ colorscheme afterglow
 endif
 
 "Diablo3 longline warning
@@ -337,3 +337,26 @@ command! Wsudo w !sudo tee > /dev/null %
 
 "quickscope
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+"Bracketed paste mode
+if &term =~ "screen.*"
+    let &t_ti = &t_ti . "\e[?2004h"
+    let &t_te = "\e[?2004l" . &t_te
+    function XTermPasteBegin(ret)
+        set pastetoggle=<Esc>[201~
+        set paste
+        return a:ret
+    endfunction
+    map <expr> <Esc>[200~ XTermPasteBegin("i")
+    imap <expr> <Esc>[200~ XTermPasteBegin("")
+    vmap <expr> <Esc>[200~ XTermPasteBegin("c")
+    cmap <Esc>[200~ <nop>
+    cmap <Esc>[201~ <nop>
+endif
