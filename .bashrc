@@ -1,21 +1,41 @@
-alias ctags="'brew --prefix'/bin/ctags"
-alias cls="clear"
-alias apt-get="sudo apt-get"
-alias dpkg="sudo dpkg"
+runfish() {
+	if hash fish 2>/dev/null; then
+		fish
+	fi
+}
+
 alias tmux="tmux -2"
 alias ls="ls --color=auto"
 alias sl="ls --color=auto"
-alias zypper="sudo zypper"
-export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:/usr/sbin
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/sbin/
-export PATH=$PATH:/usr/lib32
-export TERM="xterm-256color"
 
-unset SSH_ASKPASS
+case "$(uname -s)" in
+	Darwin)
+		runfish
+		;;
+	Linux)
+	alias cls="clear"
+	alias apt-get="sudo apt-get"
+	alias zypper="sudo zypper"
+	export PATH=$PATH:/usr/local/sbin
+	export PATH=$PATH:/usr/sbin
+	export PATH=$PATH:/usr/bin
+	export PATH=$PATH:/sbin/
+	alias ctags="'brew --prefix'/bin/ctags"
+	alias dpkg="sudo dpkg"
+	export PATH=$PATH:/usr/lib32
+	unset SSH_ASKPASS
+	export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+	runfish
+	;;
+	# Do something under GNU/Linux platform
+	CYGWIN*|MINGW32*|MSYS*)
+	;;
+	# Do something under Windows NT platform
+esac
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# Go into fish
-# fish
+# NVM
+if [ -s ~/.nvm/nvm.sh ]; then
+	NVM_DIR=~/.nvm
+	source ~/.nvm/nvm.sh
+fi
