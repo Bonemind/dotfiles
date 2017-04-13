@@ -1,0 +1,1 @@
+/Users/phnl310276164/.local/share/omf/themes/clearance/fish_prompt.fish

@@ -1,0 +1,28 @@
+nnoremap <silent> <Tab> >>
+vnoremap <silent> <Tab> >gv
+nnoremap <silent> <S-Tab> <<
+vnoremap <silent> <S-Tab> <gv
+
+"binds to make HL behave like a stronger h and l
+nnoremap <silent> H ^
+nnoremap <silent> L $
+vnoremap <silent> H ^
+vnoremap <silent> L $
+
+
+"Open vimrc in
+nnoremap <silent> <leader>ev :e ~/.ideavimrc<cr>
+
+"Use jj instead of escape
+imap jj <c-c>
+
+"Some command remaps to not have to pay attention
+cnoreabbrev W w
+cnoreabbrev Wa wa
+cnoreabbrev WA wa
+cnoreabbrev Q q
+cnoreabbrev Qa qa
+cnoreabbrev QA qa
+
+set number
+set relativenumber

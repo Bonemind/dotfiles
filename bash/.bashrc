@@ -10,6 +10,7 @@ alias sl="ls --color=auto"
 
 case "$(uname -s)" in
 	Darwin)
+		export JAVA_HOME=$(/usr/libexec/java_home)
 		runfish
 		;;
 	Linux)
@@ -39,3 +40,5 @@ if [ -s ~/.nvm/nvm.sh ]; then
 	NVM_DIR=~/.nvm
 	source ~/.nvm/nvm.sh
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
