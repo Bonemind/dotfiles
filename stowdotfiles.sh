@@ -16,7 +16,7 @@ then
 	for dir in "${DIRS[@]}"
 	do
 		echo Stowing $dir
-		$stow $dir
+		stow $dir
 	done
 	echo Done
 else

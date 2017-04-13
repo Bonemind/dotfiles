@@ -5,9 +5,6 @@ if has('vim_starting')
 endif
 
 " Required:
-" curl
-" https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-" sh ./installer.sh ~/.vim/bundle/dein.vim
 set runtimepath^=~/.vim/bundle/dein.vim/repos/github.com/Shougo/dein.vim
 
 " Let NeoBundle manage NeoBundle
