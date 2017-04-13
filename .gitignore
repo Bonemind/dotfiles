@@ -2,4 +2,5 @@ vim/.vim/bundle
 vim/.vim/undodir/*
 *fish_history
 *fishd.*
+fish/.config/fish/functions/fzf_key_bindings.fish
 node_modules/

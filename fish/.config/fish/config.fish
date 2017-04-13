@@ -1,3 +1,10 @@
+# Path to Oh My Fish install.
+set -q XDG_DATA_HOME
+  and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
+  or set -gx OMF_PATH "$HOME/.local/share/omf"
+
+# Load Oh My Fish configuration.
+source $OMF_PATH/init.fish
 set -x -g LANG en_US.UTF-8
 set -x -g EDITOR (which vim)
 set -e -g SSH_ASKPASS
@@ -10,7 +17,6 @@ end
 
 source ~/.config/fish/nvm-wrapper/nvm.fish
 alias mux "tmuxinator"
-set -g Z_SCRIPT_PATH (brew --prefix)/etc/profile.d/z.sh
 
 #rvm default
 #nohup rvm default > /dev/null 2>&1
