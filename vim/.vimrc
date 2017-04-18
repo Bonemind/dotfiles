@@ -30,7 +30,7 @@ call dein#add('tpope/vim-abolish')
 call dein#add('bling/vim-airline')
 call dein#add('tpope/vim-fugitive')
 call dein#add('justinmk/vim-sneak')
-call dein#add('Shougo/vimfiler.vim')
+call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/vimprj')
 call dein#add('lervag/vimtex')
 call dein#add('tpope/vim-rails')
@@ -53,11 +53,16 @@ call dein#add('sheerun/vim-polyglot')
 call dein#add('unblevable/quick-scope')
 call dein#add('roman/golden-ratio')
 call dein#add('junegunn/vim-easy-align')
+call dein#add('ryanoasis/vim-devicons')
 
 call dein#end()
 
 " Required:
 filetype plugin indent on
+
+" Devicons requires UTF-8
+set encoding=utf8
+let g:airline_powerline_fonts = 1
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -125,8 +130,7 @@ function! NumberToggle()
 endfunc
 
 nnoremap <silent> <leader>q :TagbarToggle<CR>
-nnoremap <silent> <leader>e :VimFilerExplorer<CR>
-nnoremap <silent> - :VimFiler<CR>
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>
 nnoremap <silent> <leader>g :GundoToggle<CR>
 nnoremap <silent> <leader>f :CtrlP<CR>
 nnoremap <silent> <leader>v :vsplit<cr>
