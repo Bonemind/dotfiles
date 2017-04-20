@@ -18,4 +18,7 @@ sh ./installer.sh ~/.vim/bundle/dein.vim
 
 # Acquire a powerline/nerd patched font
 # e.g: https://github.com/ryanoasis/nerd-fonts
+
+# Acquire TPM
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```

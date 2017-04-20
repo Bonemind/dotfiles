@@ -4,3 +4,4 @@ vim/.vim/undodir/*
 *fishd.*
 fish/.config/fish/functions/fzf_key_bindings.fish
 node_modules/
+tmux/.tmux/plugins/*
