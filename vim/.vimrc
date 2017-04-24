@@ -12,7 +12,7 @@ set runtimepath^=~/.vim/bundle/dein.vim/repos/github.com/Shougo/dein.vim
 call dein#begin(expand('~/.cache/dein'))
 call dein#add('Shougo/dein.vim')
 call dein#add('tpope/vim-commentary')
-call dein#add('kien/ctrlp.vim')
+call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('ciaranm/detectindent')
 call dein#add('rafiks/dfrank_util')
 call dein#add('mattn/emmet-vim')
@@ -199,7 +199,9 @@ inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 "Use jj instead of escape
 imap jj <c-c>
 
-"Some command remaps to not have to pay attention
+nnoremap <Leader>t :call VimuxPromptCommand()<CR>
+
+"Some command remaps for common typos
 cnoreabbrev W w
 cnoreabbrev Wa wa
 cnoreabbrev WA wa
