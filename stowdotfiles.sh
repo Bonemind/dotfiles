@@ -1,5 +1,5 @@
 #!/bin/bash
-DIRS=("bash" "fish" "git" "intellij" "qtile" "tmux" "vim")
+DIRS=("bash" "ctags" "fish" "git" "intellij" "qtile" "tmux" "vim")
 PARENT=$(dirname "$PWD")
 
 if ! hash stow 2>/dev/null; then
