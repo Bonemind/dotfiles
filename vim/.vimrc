@@ -10,6 +10,7 @@ set runtimepath^=~/.vim/bundle/dein.vim/repos/github.com/Shougo/dein.vim
 " Let NeoBundle manage NeoBundle
 " Required:
 call dein#begin(expand('~/.cache/dein'))
+
 call dein#add('Shougo/dein.vim')
 call dein#add('tpope/vim-commentary')
 call dein#add('ctrlpvim/ctrlp.vim')
@@ -19,13 +20,12 @@ call dein#add('mattn/emmet-vim')
 call dein#add('vim-scripts/Gundo')
 call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('vim-scripts/indexer.tar.gz')
-call dein#add('Shougo/neocomplcache.vim')
+call dein#add('Shougo/neocomplete.vim')
 call dein#add('vexxor/phpdoc.vim')
 call dein#add('tpope/vim-repeat')
 call dein#add('tsaleh/vim-supertab')
 call dein#add('tpope/vim-surround')
 call dein#add('scrooloose/syntastic')
-call dein#add('Shougo/unite.vim')
 call dein#add('tpope/vim-abolish')
 call dein#add('bling/vim-airline')
 call dein#add('tpope/vim-fugitive')
@@ -54,18 +54,18 @@ call dein#add('unblevable/quick-scope')
 call dein#add('roman/golden-ratio')
 call dein#add('junegunn/vim-easy-align')
 call dein#add('ryanoasis/vim-devicons')
+call dein#add('szw/vim-tags')
 
 call dein#end()
 
-" Required:
-filetype plugin indent on
+"turn on plugins and stuff
+filetype on
+filetype plugin on
+filetype indent on
 
 " Devicons requires UTF-8
 set encoding=utf8
 let g:airline_powerline_fonts = 1
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
 
 "syntax highlighting on
 syntax on
@@ -86,11 +86,6 @@ let g:diablo3_longline = 1
 "buffers can now exist in background
 set hidden
 
-"turn on plugins and stuff
-filetype on
-filetype plugin on
-filetype indent on
-
 "Make backspace behave in a sane way
 set backspace=indent,eol,start
 
@@ -100,18 +95,11 @@ set nocompatible
 "Statusbar
 set laststatus=2
 
-"Unite
-let g:unite_enable_start_insert = 1
-let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight = 10
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-
 "NeoComplCache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_min_syntax_length = 1
-let g:neocomplcache_max_list = 20
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 1
+let g:neocomplete#enable_fuzzy_completion = 1
+let g:neocomplete#max_list = 10
 
 "Indent-guides
 autocmd VimEnter * :IndentGuidesEnable
@@ -130,28 +118,25 @@ function! NumberToggle()
 endfunc
 
 nnoremap <silent> <leader>q :TagbarToggle<CR>
+nnoremap <silent> <leader><leader>q :CtrlPTag<CR>
 nnoremap <silent> <leader>e :NERDTreeToggle<CR>
 nnoremap <silent> <leader>g :GundoToggle<CR>
 nnoremap <silent> <leader>f :CtrlP<CR>
 nnoremap <silent> <leader>v :vsplit<cr>
-nnoremap <silent> <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>t :call VimuxPromptCommand()<CR>
 
 " Window management
-
-" nnoremap <silent> <leader>h <C-w>h
-" nnoremap <silent> <leader>l <C-w>l
-" nnoremap <silent> <leader>j <C-w>j
-" nnoremap <silent> <leader>k <C-w>k
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 
-"Switch to previous and nex buffer
+"Buffers
 nnoremap <silent> <leader>bn :bn<cr>
 nnoremap <silent> <leader>bp :bp<cr>
 nnoremap <silent> <leader>bd :bd<cr>
+nnoremap <silent> <leader>bf :CtrlPBuffer<cr>
 
 "Tab indents
 nnoremap <silent> <Tab> >>
@@ -159,11 +144,6 @@ vnoremap <silent> <Tab> >gv
 nnoremap <silent> <S-Tab> <<
 vnoremap <silent> <S-Tab> <gv
 
-
-"Emmet
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,php EmmetInstall
-let g:user_emmet_leader_key='<leader><leader>e'
 
 "binds to make HL behave like a stronger h and l
 nnoremap <silent> H ^
@@ -174,9 +154,6 @@ vnoremap <silent> L $
 
 "Open vimrc in
 nnoremap <silent> <leader>ev :edit $MYVIMRC<cr>
-
-"Open hosts file
-nnoremap <silent> <leader>eh :edit C:/Windows/System32/drivers/etc/hosts<cr>
 
 "NOP arrow keys
 nnoremap <Up> <NOP>
@@ -193,13 +170,9 @@ inoremap <esc> <NOP>
 "NOP S-k
 nnoremap <s-k> <NOP>
 
-"Comment current function
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
-
 "Use jj instead of escape
 imap jj <c-c>
 
-nnoremap <Leader>t :call VimuxPromptCommand()<CR>
 
 "Some command remaps for common typos
 cnoreabbrev W w
@@ -208,6 +181,12 @@ cnoreabbrev WA wa
 cnoreabbrev Q q
 cnoreabbrev Qa qa
 cnoreabbrev QA qa
+
+"Emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,php EmmetInstall
+let g:user_emmet_leader_key='<leader><leader>e'
+
 
 "Set windows font
 if has("gui_running")
@@ -278,14 +257,6 @@ endfun
 "DetectIndent
 autocmd BufReadPost * call DetectIndentExlude()
 
-"Choosewin
-nmap <leader><leader>s <Plug>(choosewin)
-let g:choosewin_overlay_enable = 1
-let g:choosewin_blink_on_land = 1
-
-"VimFiler
-let g:vimfiler_safe_mode_by_default = 0
-
 " Neosnippet
 imap <leader>r     <Plug>(neosnippet_expand_or_jump)
 smap <leader>r     <Plug>(neosnippet_expand_or_jump)
@@ -316,8 +287,6 @@ map <leader>rl :VroomRunLastTest<CR>
 
 " Syntastic
 let g:syntastic_ruby_checkers = ['mri']
-
-set conceallevel=0
 
 "Airline
 let g:airline#extensions#tabline#enabled = 1
