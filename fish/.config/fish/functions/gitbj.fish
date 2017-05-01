@@ -6,7 +6,7 @@ function gitbj -d "Uses jira cli client to fetch an issue description and branch
 		# Get the issue description from the jira cli tool
 		# https://github.com/Netflix-Skunkworks/go-jira
 		# Then remove starting space
-		set desc (jira $issue | tail -n 1 | sed -E "s/^[ ]+//g")
+		set desc (jira $issue | grep "summary" | tail -n 1 | sed -E "s/summary: //g" | sed -E "s/^[ ]+//g")
 
 		if test -n $desc
 			# Remove trailing period, replace spaces by dashes
