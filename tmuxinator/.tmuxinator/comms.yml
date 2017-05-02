@@ -1,0 +1,8 @@
+# ~/.tmuxinator/comms.yml
+
+name: comms
+root: ~/
+
+windows:
+  - irc: weechat
+  - feeds: newsbeuter
