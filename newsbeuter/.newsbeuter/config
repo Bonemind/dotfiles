@@ -1,0 +1,10 @@
+browser open
+
+always-display-description true
+always-download true
+auto-reload yes
+mark-as-read-on-hover yes
+download-full-page yes
+
+color info blue white
+color listfocus black yellow

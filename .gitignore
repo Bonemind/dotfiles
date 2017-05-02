@@ -5,3 +5,6 @@ vim/.vim/undodir/*
 fish/.config/fish/functions/fzf_key_bindings.fish
 node_modules/
 tmux/.tmux/plugins/*
+newsbeuter/.newsbeuter/cache.db
+newsbeuter/.newsbeuter/cache.db.lock
+newsbeuter/.newsbeuter/history.*
