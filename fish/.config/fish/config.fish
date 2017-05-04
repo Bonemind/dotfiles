@@ -34,3 +34,13 @@ if test -z $TMUX
 else
 	set -x FZF_TMUX 1
 end
+
+set LOCALSSHIDENTPATH $HOME/dotfiles/submodules/ssh-ident/ssh-ident
+echo $LOCALSSHIDENTPATH
+if test -e $LOCALSSHIDENTPATH
+	set -x SSH_ADD_DEFAULT_OPTIONS "-t 300"
+	set -x GIT_SSH_COMMAND $LOCALSSHIDENTPATH
+	alias ssh $LOCALSSHIDENTPATH
+else
+	echo "Missing local bin path"
+end

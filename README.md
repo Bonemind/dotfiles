@@ -21,4 +21,7 @@ sh ./installer.sh ~/.vim/bundle/dein.vim
 
 # Acquire TPM
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Init submodules
+git submodule update --init --recursive
 ```

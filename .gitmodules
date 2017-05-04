@@ -1,0 +1,6 @@
+[submodule "ssh-ident"]
+	path = ssh-ident
+	url = https://github.com/ccontavalli/ssh-ident
+[submodule "submodules/ssh-ident"]
+	path = submodules/ssh-ident
+	url = https://github.com/ccontavalli/ssh-ident
