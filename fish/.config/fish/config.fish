@@ -36,7 +36,6 @@ else
 end
 
 set LOCALSSHIDENTPATH $HOME/dotfiles/submodules/ssh-ident/ssh-ident
-echo $LOCALSSHIDENTPATH
 if test -e $LOCALSSHIDENTPATH
 	set -x SSH_ADD_DEFAULT_OPTIONS "-t 300"
 	set -x GIT_SSH_COMMAND $LOCALSSHIDENTPATH
