@@ -307,6 +307,11 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" Filetype mappings for unknown filetypes
+augroup filetypedetect
+    au BufRead,BufNewFile *.vimprj setfiletype vim
+augroup END
+
 "Bracketed paste mode
 if &term =~ "screen.*"
     let &t_ti = &t_ti . "\e[?2004h"
