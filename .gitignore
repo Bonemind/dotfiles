@@ -1,5 +1,9 @@
 vim/.vim/bundle
-vim/.vim/undodir/*
+vim/.vim/vimplugins
+vimcommon/.config/vimcommon/undodir/*
+
+nvim/.config/nvim/nvimplugins
+
 *fish_history
 *fishd.*
 fish/.config/fish/functions/fzf_key_bindings.fish

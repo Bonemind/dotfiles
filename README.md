@@ -14,7 +14,10 @@ chmod +x ./stowdotfiles.sh
 
 # Dein setup
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.vim/bundle/dein.vim
+
+pip3 install neovim
+./installer.sh .vim/vimplugins/dein.vim
+./installer.sh .config/nvim/nvimplugins/dein.vim
 
 # Acquire a powerline/nerd patched font
 # e.g: https://github.com/ryanoasis/nerd-fonts
