@@ -53,6 +53,7 @@ call dein#add('junegunn/vim-easy-align')
 call dein#add('ryanoasis/vim-devicons')
 call dein#add('szw/vim-tags')
 call dein#add('wellle/targets.vim')
+call dein#add('chaoren/vim-wordmotion')
 
 call dein#end()
 
