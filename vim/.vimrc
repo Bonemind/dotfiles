@@ -13,6 +13,8 @@ endfunction
 
 source ~/.config/vimcommon/common.vim
 
+echom 'You have started vim again, start nvim instead'
+
 "NeoComplCache
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 1
