@@ -13,14 +13,15 @@ if dein#load_state(deinpluginpath)
  call dein#begin(deinpluginpath)
  call dein#add(deinpath)
 
+ "Add common plugins, defined in plugins.vim
  call AddCommonPlugins()
+
+ " Add vim flavor specific plugins, defined in
+ " whatever the vimrc of this flavor is
  call AddSpecificPlugins()
 
  call dein#end()
  call dein#save_state()
-
- " Calls AddSpecificPlugins that was defined in whatever vimrc we loaded
- " Either .vimrc or init.vim for neovim probably
 endif
 
 " Install any missing plugins
