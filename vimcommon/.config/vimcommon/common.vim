@@ -53,13 +53,14 @@ if dein#load_state(deinpluginpath)
  call dein#add('szw/vim-tags')
  call dein#add('wellle/targets.vim')
  call dein#add('chaoren/vim-wordmotion')
+ call dein#add('skywind3000/asyncrun.vim')
 
-  call dein#end()
-  call dein#save_state()
+ call dein#end()
+ call dein#save_state()
 
-  " Calls AddSpecificPlugins that was defined in whatever vimrc we loaded
-  " Either .vimrc or init.vim for neovim probably
-  call AddSpecificPlugins()
+ " Calls AddSpecificPlugins that was defined in whatever vimrc we loaded
+ " Either .vimrc or init.vim for neovim probably
+ call AddSpecificPlugins()
 endif
 
 " Install any missing plugins
