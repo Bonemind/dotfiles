@@ -6,61 +6,21 @@ set nocompatible
 " Add dein to runtimepath
 execute 'set runtimepath^=' . deinpath
 
+source ~/.config/vimcommon/plugins.vim
+
 " Dein plugins
 if dein#load_state(deinpluginpath)
  call dein#begin(deinpluginpath)
  call dein#add(deinpath)
 
- call dein#add('Shougo/dein.vim')
- call dein#add('tpope/vim-commentary')
- call dein#add('ctrlpvim/ctrlp.vim')
- call dein#add('ciaranm/detectindent')
- call dein#add('rafiks/dfrank_util')
- call dein#add('mattn/emmet-vim')
- call dein#add('vim-scripts/Gundo')
- call dein#add('nathanaelkane/vim-indent-guides')
- call dein#add('tpope/vim-repeat')
- call dein#add('tsaleh/vim-supertab')
- call dein#add('tpope/vim-surround')
- call dein#add('scrooloose/syntastic')
- call dein#add('tpope/vim-abolish')
- call dein#add('bling/vim-airline')
- call dein#add('tpope/vim-fugitive')
- call dein#add('justinmk/vim-sneak')
- call dein#add('scrooloose/nerdtree')
- call dein#add('vim-scripts/vimprj')
- call dein#add('lervag/vimtex')
- call dein#add('tpope/vim-rails')
- call dein#add('tpope/vim-bundler')
- call dein#add('Shougo/neosnippet')
- call dein#add('danilo-augusto/vim-afterglow')
- call dein#add('benmills/vimux')
- call dein#add('skalnik/vim-vroom')
- call dein#add('kana/vim-textobj-user')
- call dein#add('rhysd/vim-textobj-ruby')
- call dein#add('christoomey/vim-tmux-navigator')
- call dein#add('dbakker/vim-projectroot')
- call dein#add('airblade/vim-gitgutter')
- call dein#add('majutsushi/tagbar')
- call dein#add('osyo-manga/vim-over')
- call dein#add('Shougo/neosnippet-snippets')
- call dein#add('othree/yajs.vim')
- call dein#add('sheerun/vim-polyglot')
- call dein#add('unblevable/quick-scope')
- call dein#add('roman/golden-ratio')
- call dein#add('junegunn/vim-easy-align')
- call dein#add('ryanoasis/vim-devicons')
- call dein#add('szw/vim-tags')
- call dein#add('wellle/targets.vim')
- call dein#add('chaoren/vim-wordmotion')
- call dein#add('skywind3000/asyncrun.vim')
+ call AddCommonPlugins()
+ call AddSpecificPlugins()
 
  call dein#end()
  call dein#save_state()
 
  " Calls AddSpecificPlugins that was defined in whatever vimrc we loaded
  " Either .vimrc or init.vim for neovim probably
- call AddSpecificPlugins()
 endif
 
 " Install any missing plugins

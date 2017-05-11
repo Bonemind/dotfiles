@@ -8,7 +8,7 @@ let deinpluginpath=expand('~/.vim/vimplugins/deinplugins')
 execute 'set runtimepath^=' . deinpath
 
 function AddSpecificPlugins()
- call dein#add('Shougo/neocomplete.vim')
+ call dein#add('Shougo/neocomplete.vim', { 'rev': '0dbc6e4594db2e7fdd4c71b93e67b51e26c9c258' })
 endfunction
 
 source ~/.config/vimcommon/common.vim
