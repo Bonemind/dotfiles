@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -z "$1" || -z "$2" ]]; then
-	echo "Usage: ./lockrevs.sh [current plugin folder] [common.vim path]"
+	echo "Usage: ./lockrevs.sh [current plugin folder] [plugins.vim path]"
 	exit 1
 fi
 
@@ -25,7 +25,7 @@ for folder in $folders; do
 	cd $folder
 	rev=$(git rev-parse HEAD)
 	plugin=$(echo $folder | sed 's/\.\///g')
-	pluginline="dein#add('$plugin', { 'rev': '$rev' })"
+	pluginline="call dein#add('$plugin', { 'rev': '$rev' })"
 
 	if [ -z "$(grep $plugin $COMMONFILE)" ]; then
 		# Not in common
