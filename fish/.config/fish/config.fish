@@ -15,8 +15,6 @@ function tmux
 	command tmux -2 $argv
 end
 
-source ~/.config/fish/nvm-wrapper/nvm.fish
-
 alias mux "tmuxinator"
 
 # Git Abbrs

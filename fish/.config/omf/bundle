@@ -1,3 +1,5 @@
+package foreign-env
+package nvm
 theme batman
 theme bobthefish
 theme cbjohnson
