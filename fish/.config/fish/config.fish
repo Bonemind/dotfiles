@@ -39,5 +39,5 @@ if test -e $LOCALSSHIDENTPATH
 	set -x GIT_SSH_COMMAND $LOCALSSHIDENTPATH
 	alias ssh $LOCALSSHIDENTPATH
 else
-	echo "Missing local bin path"
+	echo "Missing ssh-ident submodule in dotfiles"
 end
