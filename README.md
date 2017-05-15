@@ -27,4 +27,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Init submodules
 git submodule update --init --recursive
+
+# Install OMF modules
+omf install
 ```
