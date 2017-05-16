@@ -46,9 +46,9 @@ set background=dark
 
 "Setting the default colorscheme
 if has('gui_running')
- colorscheme afterglow
+ colorscheme yin
 else
- colorscheme afterglow
+ colorscheme yin
 endif
 
 "buffers can now exist in background
