@@ -42,13 +42,13 @@ let g:airline_powerline_fonts = 1
 syntax on
 
 "Background color/style
-set background=dark
+set background=light
 
 "Setting the default colorscheme
 if has('gui_running')
- colorscheme yin
+ colorscheme yang
 else
- colorscheme yin
+ colorscheme yang
 endif
 
 "buffers can now exist in background
@@ -165,7 +165,7 @@ let g:vroom_use_binstubs=1
 let g:syntastic_ruby_checkers = ['mri']
 
 "Airline
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
