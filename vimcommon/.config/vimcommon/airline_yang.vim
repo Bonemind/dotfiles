@@ -82,7 +82,7 @@ if !get(g:, 'loaded_ctrlp', 0)
 endif
 
 let g:airline#themes#yang#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
-			\ [ s:palette.gray15[1], s:palette.gray02[1], s:palette.gray10[0], s:palette.gray02[0], '' ],
-			\ [ s:palette.gray15[1], s:palette.gray04[1], s:palette.gray10[0], s:palette.gray04[0], '' ],
-			\ [ s:palette.gray15[1], s:palette.gray01[1], s:palette.gray11[0], s:palette.gray01[0], 'bold' ])
+			\ [ s:palette.gray10[1], s:palette.gray02[1], s:palette.gray10[0], s:palette.gray02[0], '' ],
+			\ [ s:palette.gray10[1], s:palette.gray04[1], s:palette.gray10[0], s:palette.gray04[0], '' ],
+			\ [ s:palette.gray10[1], s:palette.gray01[1], s:palette.gray10[0], s:palette.gray01[0], 'bold' ])
 
