@@ -36,7 +36,6 @@ filetype indent on
 
 " Devicons requires UTF-8
 set encoding=utf8
-let g:airline_powerline_fonts = 1
 
 "syntax highlighting on
 syntax on
@@ -165,9 +164,12 @@ let g:vroom_use_binstubs=1
 let g:syntastic_ruby_checkers = ['mri']
 
 "Airline
+source ~/.config/vimcommon/airline_yang.vim
+let g:airline_theme='yang'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
+let g:airline_skip_empty_sections=1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tagbar#enabled = 1
