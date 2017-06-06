@@ -1,3 +1,5 @@
+*.local
+
 vim/.vim/bundle
 vim/.vim/vimplugins
 vimcommon/.config/vimcommon/undodir/*

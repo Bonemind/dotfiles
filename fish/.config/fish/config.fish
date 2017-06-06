@@ -41,3 +41,8 @@ if test -e $LOCALSSHIDENTPATH
 else
 	echo "Missing ssh-ident submodule in dotfiles"
 end
+
+set LOCALCONFIG $HOME/.config/fish/config.fish.local
+if test -e $LOCALCONFIG
+	source $LOCALCONFIG
+end
