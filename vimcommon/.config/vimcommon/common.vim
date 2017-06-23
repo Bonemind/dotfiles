@@ -145,9 +145,7 @@ endfun
 autocmd BufReadPost * call DetectIndentExlude()
 
 " For conceal markers.
-if has('conceal')
- set conceallevel=2 concealcursor=niv
-endif
+set conceallevel=0
 
 let g:neosnippet#snippets_directory='~/.vim/snippets'
 
@@ -164,7 +162,7 @@ let g:vroom_use_binstubs=1
 let g:syntastic_ruby_checkers = ['mri']
 
 "Airline
-source ~/.config/vimcommon/airline_yang.vim
+execute 'source ~/.config/vimcommon/airline_yang.vim'
 let g:airline_theme='yang'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
