@@ -3,13 +3,15 @@ set -q XDG_DATA_HOME
   and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
   or set -gx OMF_PATH "$HOME/.local/share/omf"
 
+
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
 set -x -g LANG en_US.UTF-8
-set -x -g EDITOR (which vim)
+set -x -g EDITOR (which nvim)
+# set -x -g SHELL (which nvim)
 set -e -g SSH_ASKPASS
 set -x -g XML_CATALOG_FILES /usr/local/etc/xml/catalog
-set -e fish_greeting
+set fish_greeting ""
 
 function tmux
 	command tmux -2 $argv
@@ -32,6 +34,8 @@ if test -z $TMUX
 else
 	set -x FZF_TMUX 1
 end
+
+eval (python -m virtualfish auto_activation)
 
 set LOCALSSHIDENTPATH $HOME/dotfiles/submodules/ssh-ident/ssh-ident
 if test -e $LOCALSSHIDENTPATH
