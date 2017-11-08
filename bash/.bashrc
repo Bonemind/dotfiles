@@ -2,10 +2,6 @@
 [[ $- != *i* ]] && return
 
 PS1='[\u@\h \W]\$ '
-# >>> BEGIN ADDED BY CNCHI INSTALLER
-BROWSER=/usr/bin/chromium
-EDITOR=/usr/bin/nano
-# <<< END ADDED BY CNCHI INSTALLER
 
 runfish() {
 	if hash fish 2>/dev/null; then
@@ -44,11 +40,9 @@ case "$(uname -s)" in
 esac
 
 
-export WORKON_HOME=~/python-venvs
 
 # NVM
 if [ -s ~/.nvm/nvm.sh ]; then
 	NVM_DIR=~/.nvm
 	source ~/.nvm/nvm.sh
 fi
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
