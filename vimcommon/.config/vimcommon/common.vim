@@ -91,7 +91,6 @@ let g:user_emmet_leader_key='<leader><leader>e'
 "automatic and smart indent
 set autoindent
 set copyindent
-set smartindent
 set tabstop=3
 set shiftwidth=3
 
@@ -205,3 +204,8 @@ if &term =~ "screen.*"
     cmap <Esc>[200~ <nop>
     cmap <Esc>[201~ <nop>
 endif
+
+" Supertab from top to bottom
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+set completeopt-=preview
