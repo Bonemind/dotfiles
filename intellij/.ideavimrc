@@ -26,3 +26,5 @@ cnoreabbrev QA qa
 
 set number
 set relativenumber
+
+set surround
