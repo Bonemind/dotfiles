@@ -13,6 +13,7 @@ DIRS=(
 	"tmuxinator"
 	"vim"
 	"vimcommon"
+	"i3"
 )
 
 PARENT=$(dirname "$PWD")
