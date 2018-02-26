@@ -208,4 +208,7 @@ endif
 " Supertab from top to bottom
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+" Make sure non-modifieable windows stay the a sensible size
+let g:golden_ratio_exclude_nonmodifiable = 1
+
 set completeopt-=preview

@@ -45,4 +45,8 @@ function AddCommonPlugins()
 	call dein#add('neomake/neomake')
 	call dein#add('reedes/vim-wordy')
 	call dein#add('zchee/deoplete-jedi')
+	call dein#add('NLKNguyen/papercolor-theme')
+	call dein#add('Quramy/tsuquyomi')
+	call dein#add('Shougo/vimproc.vim',  {'build': 'make'})
+	call dein#add('editorconfig/editorconfig-vim')
 endfunction
