@@ -14,6 +14,7 @@ DIRS=(
 	"vim"
 	"vimcommon"
 	"i3"
+	"alacritty"
 )
 
 PARENT=$(dirname "$PWD")
