@@ -36,7 +36,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminology
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -162,8 +162,8 @@ bindsym $mod+r mode "resize"
 
 new_window 1pixel
 smart_gaps on
-gaps inner 20
-gaps outer 20
+gaps inner 04
+gaps outer 04
 smart_borders on
 floating_minimum_size 75 x 50
 
