@@ -72,6 +72,4 @@ xmap <leader>r     <Plug>(neosnippet_expand_target)
 map <leader>vr :VimuxPromptCommand<CR>
 map <leader>vq :VimuxCloseRunner<CR>
 map <leader>vx :VimuxInterruptRunner<CR>
-map <leader>rc :VroomRunTestFile<CR>
-map <leader>rn :VroomRunNearestTest<CR>
-map <leader>rl :VroomRunLastTest<CR>
+map <leader>vl :VimuxRunLastCommand<CR>
