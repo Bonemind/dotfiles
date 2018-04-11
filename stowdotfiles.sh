@@ -29,8 +29,14 @@ fi
 
 echo Stow will stow to $PARENT
 
-read -p "Are you sure? [y/N] " -n 1 -r
-echo    # (optional) move to a new line
+if [ "$1" == "--no-prompt" ]
+then
+	REPLY=Y
+else
+	read -p "Are you sure? [y/N] " -n 1 -r
+	echo    # (optional) move to a new line
+fi
+
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	for dir in "${DIRS[@]}"
