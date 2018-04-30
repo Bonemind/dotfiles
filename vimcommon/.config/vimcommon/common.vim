@@ -84,7 +84,7 @@ source ~/.config/vimcommon/keys.vim
 
 "Emmet
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,php EmmetInstall
+autocmd FileType html,css,php,javascript.jsx EmmetInstall
 let g:user_emmet_leader_key='<leader><leader>e'
 
 
