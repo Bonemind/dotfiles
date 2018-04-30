@@ -73,3 +73,9 @@ map <leader>vr :VimuxPromptCommand<CR>
 map <leader>vq :VimuxCloseRunner<CR>
 map <leader>vx :VimuxInterruptRunner<CR>
 map <leader>vl :VimuxRunLastCommand<CR>
+
+" Vim LSP
+nnoremap <silent>gI :LspImplementation<CR>
+nnoremap <silent>gr :LspReferences<CR>
+nnoremap <silent>gd :LspDefinition<CR>
+nnoremap <silent>K :LspHover<CR>

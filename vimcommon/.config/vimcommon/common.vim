@@ -45,9 +45,9 @@ set background=light
 
 "Setting the default colorscheme
 if has('gui_running')
- colorscheme yang
+ colorscheme PaperColor
 else
- colorscheme yang
+ colorscheme PaperColor
 endif
 
 "buffers can now exist in background
@@ -161,8 +161,7 @@ let g:vroom_use_binstubs=1
 let g:syntastic_ruby_checkers = ['mri']
 
 "Airline
-execute 'source ~/.config/vimcommon/airline_yang.vim'
-let g:airline_theme='yang'
+let g:airline_theme='papercolor'
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
@@ -211,4 +210,28 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " Make sure non-modifieable windows stay the a sensible size
 let g:golden_ratio_exclude_nonmodifiable = 1
 
-set completeopt-=preview
+" set completeopt-=preview
+"
+" asyncomplete
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'whitelist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+    \ 'name': 'neosnippet',
+    \ 'whitelist': ['*'],
+    \ 'priority' : -1,
+    \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+    \ }))
+
+call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'whitelist': ['*'],
+    \ 'blacklist': ['go'],
+    \ 'priority' : -1,
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ }))
