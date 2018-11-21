@@ -4,6 +4,8 @@ vim/.vim/bundle
 vim/.vim/vimplugins
 vimcommon/.config/vimcommon/undodir/*
 
+Session.vim
+
 nvim/.config/nvim/nvimplugins
 
 *fish_history
