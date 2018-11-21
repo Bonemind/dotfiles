@@ -10,23 +10,23 @@ source ~/.config/vimcommon/plugins.vim
 
 " Dein plugins
 if dein#load_state(deinpluginpath)
- call dein#begin(deinpluginpath)
- call dein#add(deinpath)
+  call dein#begin(deinpluginpath)
+  call dein#add(deinpath)
 
- "Add common plugins, defined in plugins.vim
- call AddCommonPlugins()
+  "Add common plugins, defined in plugins.vim
+  call AddCommonPlugins()
 
- " Add vim flavor specific plugins, defined in
- " whatever the vimrc of this flavor is
- call AddSpecificPlugins()
+  " Add vim flavor specific plugins, defined in
+  " whatever the vimrc of this flavor is
+  call AddSpecificPlugins()
 
- call dein#end()
- call dein#save_state()
+  call dein#end()
+  call dein#save_state()
 endif
 
 " Install any missing plugins
 if dein#check_install()
- call dein#install()
+  call dein#install()
 end
 
 "turn on plugins and stuff
@@ -45,9 +45,9 @@ set background=light
 
 "Setting the default colorscheme
 if has('gui_running')
- colorscheme PaperColor
+  colorscheme PaperColor
 else
- colorscheme PaperColor
+  colorscheme PaperColor
 endif
 
 "buffers can now exist in background
@@ -61,6 +61,9 @@ set backspace=indent,eol,start
 set laststatus=2
 
 "Indent-guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=silver   ctermbg=gray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=gray     ctermbg=white
 autocmd VimEnter * :IndentGuidesEnable
 
 "turn on line numbers
@@ -69,11 +72,11 @@ set relativenumber
 
 "Set windows font
 if has("gui_running")
- if has("gui_gtk2")
-  set guifont=Inconsolata-g:h10:i:cANSI\ 12
- elseif has("gui_win32")
-  set guifont=Consolas:h11:cANSI
- endif
+  if has("gui_gtk2")
+    set guifont=Inconsolata-g:h10:i:cANSI\ 12
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
 endif
 
 "turn on line and column markers
@@ -133,11 +136,11 @@ autocmd BufEnter * silent! lcd %:p:h
 
 "Certain filetypes shouldn't be processed by detectindent
 fun! DetectIndentExlude()
- " Don't strip on these filetypes
- if &ft =~ 'php\|html\|js\|ruby\|javascript'
-  return
- endif
- :DetectIndent
+  " Don't strip on these filetypes
+  if &ft =~ 'php\|html\|js\|ruby\|javascript'
+    return
+  endif
+  :DetectIndent
 endfun
 
 "DetectIndent
@@ -185,23 +188,23 @@ nmap ga <Plug>(EasyAlign)
 
 " Filetype mappings for unknown filetypes
 augroup filetypedetect
-    au BufRead,BufNewFile *.vimprj setfiletype vim
+  au BufRead,BufNewFile *.vimprj setfiletype vim
 augroup END
 
 "Bracketed paste mode
 if &term =~ "screen.*"
-    let &t_ti = &t_ti . "\e[?2004h"
-    let &t_te = "\e[?2004l" . &t_te
-    function XTermPasteBegin(ret)
-        set pastetoggle=<Esc>[201~
-        set paste
-        return a:ret
-    endfunction
-    map <expr> <Esc>[200~ XTermPasteBegin("i")
-    imap <expr> <Esc>[200~ XTermPasteBegin("")
-    vmap <expr> <Esc>[200~ XTermPasteBegin("c")
-    cmap <Esc>[200~ <nop>
-    cmap <Esc>[201~ <nop>
+  let &t_ti = &t_ti . "\e[?2004h"
+  let &t_te = "\e[?2004l" . &t_te
+  function XTermPasteBegin(ret)
+    set pastetoggle=<Esc>[201~
+    set paste
+    return a:ret
+  endfunction
+  map <expr> <Esc>[200~ XTermPasteBegin("i")
+  imap <expr> <Esc>[200~ XTermPasteBegin("")
+  vmap <expr> <Esc>[200~ XTermPasteBegin("c")
+  cmap <Esc>[200~ <nop>
+  cmap <Esc>[201~ <nop>
 endif
 
 " Supertab from top to bottom
@@ -215,23 +218,26 @@ let g:golden_ratio_exclude_nonmodifiable = 1
 " asyncomplete
 
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'priority': 10,
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
+      \ 'name': 'file',
+      \ 'whitelist': ['*'],
+      \ 'priority': 10,
+      \ 'completor': function('asyncomplete#sources#file#completor')
+      \ }))
 
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-    \ 'name': 'neosnippet',
-    \ 'whitelist': ['*'],
-    \ 'priority' : -1,
-    \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
-    \ }))
+      \ 'name': 'neosnippet',
+      \ 'whitelist': ['*'],
+      \ 'priority' : -1,
+      \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+      \ }))
 
 call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-    \ 'name': 'buffer',
-    \ 'whitelist': ['*'],
-    \ 'blacklist': ['go'],
-    \ 'priority' : -1,
-    \ 'completor': function('asyncomplete#sources#buffer#completor'),
-    \ }))
+      \ 'name': 'buffer',
+      \ 'whitelist': ['*'],
+      \ 'blacklist': ['go'],
+      \ 'priority' : -1,
+      \ 'completor': function('asyncomplete#sources#buffer#completor'),
+      \ }))
+
+" Ctrl-p
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
