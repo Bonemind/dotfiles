@@ -10,14 +10,12 @@ DIRS=(
 	"qtile"
 	"ssh-ident"
 	"tmux"
-	"tmuxinator"
 	"vim"
 	"vimcommon"
 	"i3"
 	"alacritty"
 	"dunst"
 	"polybar"
-	"rofi"
 )
 
 PARENT=$(dirname "$PWD")
