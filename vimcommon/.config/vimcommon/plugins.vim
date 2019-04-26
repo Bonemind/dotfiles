@@ -57,4 +57,7 @@ function AddCommonPlugins()
 	call dein#add('vim-airline/vim-airline-themes')
 	call dein#add('w0rp/ale')
 	call dein#add('tpope/vim-obsession')
+	call dein#add('tommcdo/vim-exchange')
+	call dein#add('metakirby5/codi.vim')
+	call dein#add('wellle/visual-split.vim')
 endfunction

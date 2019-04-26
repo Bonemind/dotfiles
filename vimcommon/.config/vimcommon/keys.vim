@@ -4,7 +4,6 @@ nnoremap <silent> <leader><leader>q :CtrlPTag<CR>
 nnoremap <silent> <leader>e :NERDTreeToggle<CR>
 nnoremap <silent> <leader>g :GundoToggle<CR>
 nnoremap <silent> <leader>f :CtrlP<CR>
-nnoremap <silent> <leader>v :vsplit<cr>
 nnoremap <leader>t :call VimuxPromptCommand()<CR>
 
 " Window management
@@ -33,6 +32,8 @@ nnoremap <silent> L $
 vnoremap <silent> H ^
 vnoremap <silent> L $
 
+" Visual split
+vnoremap <silent> <leader>vs :VSSplit<CR>
 
 "Open vimrc in
 nnoremap <silent> <leader>ev :edit $MYVIMRC<cr>
