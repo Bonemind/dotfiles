@@ -20,7 +20,7 @@ end
 alias mux "tmuxinator"
 
 # Git Abbrs
-abbr gits 'git status'
+abbr gits "git status"
 abbr gitc "git checkout"
 abbr gitcb "git checkout -b"
 abbr gitl "git log"
@@ -37,11 +37,10 @@ end
 
 eval (python -m virtualfish auto_activation)
 
-set LOCALSSHIDENTPATH $HOME/dotfiles/submodules/ssh-ident/ssh-ident
+set -x LOCALSSHIDENTPATH $HOME/dotfiles/submodules/ssh-ident/ssh-ident
 if test -e $LOCALSSHIDENTPATH
 	set -x SSH_ADD_DEFAULT_OPTIONS "-t 300"
 	set -x GIT_SSH_COMMAND $LOCALSSHIDENTPATH
-	alias ssh $LOCALSSHIDENTPATH
 else
 	echo "Missing ssh-ident submodule in dotfiles"
 end
