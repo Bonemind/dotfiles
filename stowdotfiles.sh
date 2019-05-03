@@ -16,6 +16,7 @@ DIRS=(
 	"alacritty"
 	"dunst"
 	"polybar"
+	"scripts"
 )
 
 PARENT=$(dirname "$PWD")
