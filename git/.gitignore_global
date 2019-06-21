@@ -1,3 +1,4 @@
 .vimprj
 .venv
 Session.vim
+.envrc
