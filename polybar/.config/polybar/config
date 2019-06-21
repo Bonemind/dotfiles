@@ -20,7 +20,7 @@ alert = #bd2c40
 
 
 [bar/native]
-monitor = eDP1
+monitor = eDP-1
 width = 100%
 height = 40
 ;offset-x = 1%
@@ -56,7 +56,7 @@ tray-position = right
 tray-padding = 2
 
 [bar/work]
-monitor = DP1
+monitor = DP-1
 width = 100%
 height = 40
 ;offset-x = 1%
