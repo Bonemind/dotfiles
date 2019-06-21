@@ -17,7 +17,9 @@ function tmux
 	command tmux -2 $argv
 end
 
-alias mux "tmuxinator"
+alias sls "serverless"
+alias tf "terraform"
+alias nvidia-xconfig "/bin/false"
 
 # Git Abbrs
 abbr gits "git status"
@@ -50,3 +52,5 @@ set LOCALCONFIG $HOME/.config/fish/config.fish.local
 if test -e $LOCALCONFIG
 	source $LOCALCONFIG
 end
+
+direnv hook fish | source
