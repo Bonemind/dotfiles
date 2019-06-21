@@ -1,9 +1,11 @@
 alacritty
 albert
+clipster
 compton
 compton-conf
 ctags
 datagrip
+direnv
 discord
 docker
 docker-compose
