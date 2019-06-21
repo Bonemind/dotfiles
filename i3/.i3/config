@@ -41,6 +41,9 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# show clipster
+bindsym $mod+c exec clipster -sp
+
 # start dmenu (a program launcher)
 bindsym $mod+Shift+d exec "rofi -show run"
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -167,11 +170,14 @@ gaps outer 04
 smart_borders on
 floating_minimum_size 75 x 50
 
-exec_always --no-startup-id feh --bg-fill ~/Downloads/snowmountain.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/TeamRockstars-3840x2160.jpg
 exec_always --no-startup-id ~/launchpolybar.sh
+exec_always --no-startup-id ~/monitors.sh
+exec_always --no-startup-id ~/startup.sh
 exec --no-startup-id compton -b
 exec --no-startup-id albert
+exec --no-startup-id clipster -d
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id syndaemon -d -i 0.5 -k
 
-# Disable mouse warping (mouse suddenly jumping to different window)
-mouse_warping none
+mouse_warping output
