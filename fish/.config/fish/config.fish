@@ -29,8 +29,6 @@ abbr gitl "git log"
 abbr gitp "git push origin"
 abbr gitg 'git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 
-set -x FZF_CTRL_T_OPTS "--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-
 if test -z $TMUX
 	set -x FZF_TMUX 0
 else
@@ -52,5 +50,14 @@ set LOCALCONFIG $HOME/.config/fish/config.fish.local
 if test -e $LOCALCONFIG
 	source $LOCALCONFIG
 end
+
+# FZF
+set -U FZF_LEGACY_KEYBINDINGS 0
+set -x FZF_COMPLETE 2
+set -x FZF_CTRL_T_OPTS "--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+# Setting fd as the default source for fzf
+set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --smart-case'
+set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+
 
 direnv hook fish | source

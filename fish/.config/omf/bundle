@@ -1,8 +1,10 @@
 package foreign-env
-package nvm
+package https://github.com/jethrokuan/fzf
+package https://github.com/jorgebucaran/fish-nvm
 package virtualfish
 theme batman
 theme bobthefish
 theme cbjohnson
 theme clearance
 theme default
+theme spacefish

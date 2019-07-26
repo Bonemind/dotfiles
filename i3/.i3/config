@@ -42,10 +42,10 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # show clipster
-bindsym $mod+c exec clipster -sp
+#bindsym $mod+c exec clipster -sp
 
 # start dmenu (a program launcher)
-bindsym $mod+Shift+d exec "rofi -show run"
+#bindsym $mod+Shift+d exec "rofi -show run"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -181,3 +181,10 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id syndaemon -d -i 0.5 -k
 
 mouse_warping output
+
+bindsym $mod+d exec alacritty --class "fzfmenu" -e fish -c 'bash -c "compgen -c" | sort | uniq | fzf | detach'
+bindsym $mod+Shift+d exec alacritty --class "fzfmenu" -e fish -c 'read -l | xargs -I %i fish -c %i'
+bindsym $mod+c exec alacritty --class "fzfmenu" -e fish -c 'clipster -on 100 | awk NF | fzf --no-sort | clipster -p'
+for_window [instance="fzfmenu"] floating enable
+for_window [instance="fzfmenu"] resize set width 1920 height 800
+for_window [instance="fzfmenu"] move position center
