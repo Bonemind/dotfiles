@@ -1,0 +1,7 @@
+{
+	"coc.source.neosnippet.priority": 1200,
+	"suggest.maxCompleteItemCount": 25,
+	"suggest.enablePreview": true,
+	"codeLens.enable": true,
+	"signature.enable": true
+}

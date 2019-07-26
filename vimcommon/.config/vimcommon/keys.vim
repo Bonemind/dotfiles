@@ -76,7 +76,8 @@ map <leader>vx :VimuxInterruptRunner<CR>
 map <leader>vl :VimuxRunLastCommand<CR>
 
 " Vim LSP
-nnoremap <silent>gI :LspImplementation<CR>
-nnoremap <silent>gr :LspReferences<CR>
-nnoremap <silent>gd :LspDefinition<CR>
-nnoremap <silent>K :LspHover<CR>
+nnoremap <silent>gI <Plug>(coc-implementation)
+nnoremap <silent>gr <Plug>(coc-references)
+nnoremap <silent>gd <Plug>(coc-definition)
+nnoremap <silent>gd <Plug>(coc-type-definition)
+nnoremap <silent>K <Plug>(coc-action-doHover)

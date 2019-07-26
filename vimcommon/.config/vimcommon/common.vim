@@ -154,7 +154,13 @@ let g:neosnippet#snippets_directory='~/.vim/snippets'
 set shell=/bin/bash
 
 " List chars
-set list lcs=tab:>-,trail:>
+set list
+set listchars=
+set listchars+=tab:░\ 
+set listchars+=trail:·
+set listchars+=extends:»
+set listchars+=precedes:«
+set listchars+=nbsp:⣿
 
 " Vimux vroom
 let g:vroom_use_vimux=1
@@ -214,30 +220,9 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:golden_ratio_exclude_nonmodifiable = 1
 
 " set completeopt-=preview
-"
-" asyncomplete
-
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-      \ 'name': 'file',
-      \ 'whitelist': ['*'],
-      \ 'priority': 10,
-      \ 'completor': function('asyncomplete#sources#file#completor')
-      \ }))
-
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-      \ 'name': 'neosnippet',
-      \ 'whitelist': ['*'],
-      \ 'priority' : -1,
-      \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
-      \ }))
-
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-      \ 'name': 'buffer',
-      \ 'whitelist': ['*'],
-      \ 'blacklist': ['go'],
-      \ 'priority' : -1,
-      \ 'completor': function('asyncomplete#sources#buffer#completor'),
-      \ }))
 
 " Ctrl-p
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" vim-rooter
+let g:rooter_manual_only = 1
