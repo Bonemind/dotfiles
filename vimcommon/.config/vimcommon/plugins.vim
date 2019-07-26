@@ -54,4 +54,5 @@ function AddCommonPlugins()
 	call dein#add('junegunn/fzf', { 'build': './install --bin', 'merged': 0 })
 	call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 	call dein#add('airblade/vim-rooter')
+	call dein#add('junegunn/vim-peekaboo')
 endfunction
