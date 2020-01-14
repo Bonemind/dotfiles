@@ -47,8 +47,5 @@ stow
 terraform
 the_silver_searcher
 tmux
-vagrant
 vim
-virtualbox virtualbox-host=modules-arch
-virtualbox virtualbox-host-modules-arch virtualbox-guest-iso
 wireshark
