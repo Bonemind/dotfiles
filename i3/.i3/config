@@ -184,7 +184,12 @@ mouse_warping output
 
 bindsym $mod+d exec alacritty --class "fzfmenu" -e fish -c 'bash -c "compgen -c" | sort | uniq | fzf | detach'
 bindsym $mod+Shift+d exec alacritty --class "fzfmenu" -e fish -c 'read -l | xargs -I %i fish -c %i'
-bindsym $mod+c exec alacritty --class "fzfmenu" -e fish -c 'clipster -on 100 | awk NF | fzf --no-sort | clipster -p'
+bindsym $mod+c exec alacritty --class "fzfmenu" -e fish -c 'clipster -on 100 | awk NF | fzf --no-sort | clipster -c'
+bindsym $mod+Shift+n exec alacritty --class "fzfmenu" -e fish -c 'joplin'
 for_window [instance="fzfmenu"] floating enable
 for_window [instance="fzfmenu"] resize set width 1920 height 800
 for_window [instance="fzfmenu"] move position center
+
+
+for_window [title="Microsoft Teams Notification"] floating enable; sticky enable
+no_focus [title="Microsoft Teams Notification"]
