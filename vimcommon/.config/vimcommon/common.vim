@@ -226,3 +226,10 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " vim-rooter
 let g:rooter_manual_only = 1
+
+" Markdown formatting
+autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+
+" SQL completion off
+let g:omni_sql_no_default_maps = 1
+let g:loaded_sql_completion = 0
