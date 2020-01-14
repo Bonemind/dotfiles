@@ -4,7 +4,7 @@
 # # < various utility scripts are also run>
 # i3-msg exec iceweasel &
 # i3-msg exec claws-mail &
-i3-msg exec optirun /opt/dynalist/dynalist &
+#i3-msg exec optirun /opt/dynalist/dynalist &
 
-sleep 5
-i3-msg '[ class="Dynalist" ] move scratchpad'
+#sleep 5
+#i3-msg '[ class="Dynalist" ] move scratchpad'
