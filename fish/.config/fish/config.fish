@@ -19,6 +19,7 @@ end
 
 alias sls "serverless"
 alias tf "terraform"
+alias pkube "kubectl --kubeconfig /home/sdweik/.kube/personal.conf"
 alias nvidia-xconfig "/bin/false"
 
 # Git Abbrs
@@ -58,6 +59,12 @@ set -x FZF_CTRL_T_OPTS "--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 # Setting fd as the default source for fzf
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --smart-case'
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
-
+set -x FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height 50% --preview-window=wrap'
 
 direnv hook fish | source
+
+if type -q navi
+	navi widget fish | source
+else
+	echo "Navi is missing..."
+end

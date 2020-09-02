@@ -1,6 +1,7 @@
+package bass
 package foreign-env
-package https://github.com/jethrokuan/fzf
 package https://github.com/jorgebucaran/fish-nvm
+package https://github.com/patrickf3139/fzf.fish
 package virtualfish
 theme batman
 theme bobthefish
