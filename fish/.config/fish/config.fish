@@ -20,6 +20,7 @@ end
 alias sls "serverless"
 alias tf "terraform"
 alias k "kubectl"
+alias pkube "kubectl --kubeconfig /home/sdweik/.kube/personal.conf"
 alias nvidia-xconfig "/bin/false"
 
 # Git Abbrs
@@ -59,11 +60,6 @@ set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --smart-case'
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -x FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height 50% --preview-window=wrap'
 
-# function __check_rvm --on-variable PWD --description 'Do rvm stuff'
-# 	status --is-command-substitution; and return
-# 	echo hello
-# end
-
 
 direnv hook fish | source
 
@@ -76,3 +72,9 @@ if [ "$TERM_PROGRAM" = "vscode" ]
 end
 
 starship init fish | source
+
+if type -q navi
+	navi widget fish | source
+else
+	echo "Navi is missing..."
+end

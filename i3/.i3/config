@@ -45,7 +45,7 @@ bindsym $mod+Shift+q kill
 #bindsym $mod+c exec clipster -sp
 
 # start dmenu (a program launcher)
-#bindsym $mod+Shift+d exec "rofi -show run"
+bindsym $mod+d exec "rofi -show run"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -172,7 +172,7 @@ floating_minimum_size 75 x 50
 
 exec_always --no-startup-id feh --bg-fill ~/Pictures/TeamRockstars-3840x2160.jpg
 exec_always --no-startup-id ~/launchpolybar.sh
-exec_always --no-startup-id ~/monitors.sh
+#exec_always --no-startup-id ~/monitors.sh
 exec_always --no-startup-id ~/startup.sh
 exec --no-startup-id compton -b
 exec --no-startup-id albert
@@ -182,12 +182,12 @@ exec --no-startup-id syndaemon -d -i 0.5 -k
 
 mouse_warping output
 
-bindsym $mod+d exec alacritty --class "fzfmenu" -e fish -c 'bash -c "compgen -c" | sort | uniq | fzf | detach'
+#bindsym $mod+d exec alacritty --class "fzfmenu" -e fish -c 'bash -c "compgen -c" | sort | uniq | fzf | tee -a /tmp/commands | detach'
 bindsym $mod+Shift+d exec alacritty --class "fzfmenu" -e fish -c 'read -l | xargs -I %i fish -c %i'
 bindsym $mod+c exec alacritty --class "fzfmenu" -e fish -c 'clipster -on 100 | awk NF | fzf --no-sort | clipster -c'
 bindsym $mod+Shift+n exec alacritty --class "fzfmenu" -e fish -c 'joplin'
 for_window [instance="fzfmenu"] floating enable
-for_window [instance="fzfmenu"] resize set width 1920 height 800
+for_window [instance="fzfmenu"] resize set width 960 height 400
 for_window [instance="fzfmenu"] move position center
 
 

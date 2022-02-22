@@ -95,3 +95,6 @@ endfunction
 nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Terminal binds
+tnoremap jj <C-\><C-n>
