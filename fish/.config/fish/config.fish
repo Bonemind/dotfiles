@@ -19,6 +19,7 @@ end
 
 alias sls "serverless"
 alias tf "terraform"
+alias k "kubectl"
 alias nvidia-xconfig "/bin/false"
 
 # Git Abbrs
@@ -35,16 +36,14 @@ else
 	set -x FZF_TMUX 1
 end
 
-eval (python -m virtualfish auto_activation)
-
-set -x LOCALSSHIDENTPATH $HOME/dotfiles/submodules/ssh-ident/ssh-ident
-if test -e $LOCALSSHIDENTPATH
-	set -x SSH_ADD_DEFAULT_OPTIONS "-t 300"
-	set -x GIT_SSH_COMMAND $LOCALSSHIDENTPATH
-	set -x ANSIBLE_SSH_EXECUTABLE $LOCALSSHIDENTPATH
-else
-	echo "Missing ssh-ident submodule in dotfiles"
-end
+# set -x LOCALSSHIDENTPATH $HOME/dotfiles/submodules/ssh-ident/ssh-ident
+# if test -e $LOCALSSHIDENTPATH
+# 	set -x SSH_ADD_DEFAULT_OPTIONS "-t 300"
+# 	set -x GIT_SSH_COMMAND $LOCALSSHIDENTPATH
+# 	set -x ANSIBLE_SSH_EXECUTABLE $LOCALSSHIDENTPATH
+# else
+# 	echo "Missing ssh-ident submodule in dotfiles"
+# end
 
 set LOCALCONFIG $HOME/.config/fish/config.fish.local
 if test -e $LOCALCONFIG
@@ -58,6 +57,22 @@ set -x FZF_CTRL_T_OPTS "--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 # Setting fd as the default source for fzf
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --smart-case'
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set -x FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height 50% --preview-window=wrap'
+
+# function __check_rvm --on-variable PWD --description 'Do rvm stuff'
+# 	status --is-command-substitution; and return
+# 	echo hello
+# end
 
 
 direnv hook fish | source
+
+if [ "$TERM_PROGRAM" = "vscode" ]
+	# if genie exists, we probably want to run inside it
+	# the genie -c is an ugly hack to switch to the right directory
+	if type -q genie; and test (eval "genie -b") = "outside";
+		genie -c bash -c 'cd $PWD && bash'
+	end
+end
+
+starship init fish | source
