@@ -1,4 +1,4 @@
 function gitplc
-	git pull origin (_git_branch_name)
+	git pull origin (__get_current_git_branch)
 end
 

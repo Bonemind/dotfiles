@@ -1,4 +1,4 @@
 function gitpuc
-	git push origin (_git_branch_name)
+	git push origin (__get_current_git_branch)
 end
 
