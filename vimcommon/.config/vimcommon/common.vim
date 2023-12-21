@@ -233,3 +233,4 @@ autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandta
 " SQL completion off
 let g:omni_sql_no_default_maps = 1
 let g:loaded_sql_completion = 0
+set mouse=

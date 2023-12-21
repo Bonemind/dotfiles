@@ -5,7 +5,7 @@ set -q XDG_DATA_HOME
 
 
 # Load Oh My Fish configuration.
-source $OMF_PATH/init.fish
+#source $OMF_PATH/init.fish
 set -x -g LANG en_US.UTF-8
 set -x -g EDITOR (which nvim)
 # set -x -g SHELL (which nvim)
@@ -36,15 +36,6 @@ if test -z $TMUX
 else
 	set -x FZF_TMUX 1
 end
-
-# set -x LOCALSSHIDENTPATH $HOME/dotfiles/submodules/ssh-ident/ssh-ident
-# if test -e $LOCALSSHIDENTPATH
-# 	set -x SSH_ADD_DEFAULT_OPTIONS "-t 300"
-# 	set -x GIT_SSH_COMMAND $LOCALSSHIDENTPATH
-# 	set -x ANSIBLE_SSH_EXECUTABLE $LOCALSSHIDENTPATH
-# else
-# 	echo "Missing ssh-ident submodule in dotfiles"
-# end
 
 set LOCALCONFIG $HOME/.config/fish/config.fish.local
 if test -e $LOCALCONFIG
@@ -78,3 +69,4 @@ if type -q navi
 else
 	echo "Navi is missing..."
 end
+source ~/.asdf/asdf.fish
