@@ -3,3 +3,6 @@
 Session.vim
 .envrc
 *:Zone.Identifier
+.claude/
+*.cc.txt
+*.cc.md

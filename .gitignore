@@ -17,3 +17,4 @@ tmux/.tmux/resurrect
 newsbeuter/.newsbeuter/cache.db
 newsbeuter/.newsbeuter/cache.db.lock
 newsbeuter/.newsbeuter/history.*
+fish_variables

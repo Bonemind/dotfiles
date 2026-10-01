@@ -19,18 +19,12 @@ case "$(uname -s)" in
 		runfish
 		;;
 	Linux)
-		alias cls="clear"
-		alias apt-get="sudo apt-get"
-		alias zypper="sudo zypper"
 		export PATH=$PATH:/usr/local/sbin
 		export PATH=$PATH:/usr/sbin
 		export PATH=$PATH:/usr/bin
 		export PATH=$PATH:/sbin/
-		alias ctags="'brew --prefix'/bin/ctags"
-		alias dpkg="sudo dpkg"
 		export PATH=$PATH:/usr/lib32
 		unset SSH_ASKPASS
-		export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 		runfish
 		;;
 	# Do something under GNU/Linux platform

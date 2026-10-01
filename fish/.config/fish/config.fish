@@ -1,11 +1,6 @@
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
-  and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
-  or set -gx OMF_PATH "$HOME/.local/share/omf"
 
-
-# Load Oh My Fish configuration.
-source $OMF_PATH/init.fish
 set -x -g LANG en_US.UTF-8
 set -x -g EDITOR (which nvim)
 # set -x -g SHELL (which nvim)
@@ -73,8 +68,16 @@ end
 
 starship init fish | source
 
-if type -q navi
-	navi widget fish | source
+# ASDF configuration code
+if test -z $ASDF_DATA_DIR
+    set _asdf_shims "$HOME/.asdf/shims"
 else
-	echo "Navi is missing..."
+    set _asdf_shims "$ASDF_DATA_DIR/shims"
 end
+
+# Do not use fish_add_path (added in Fish 3.2) because it
+# potentially changes the order of items in PATH
+if not contains $_asdf_shims $PATH
+    set -gx --prepend PATH $_asdf_shims
+end
+set --erase _asdf_shims
