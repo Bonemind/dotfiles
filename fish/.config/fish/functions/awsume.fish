@@ -1,3 +1,3 @@
 function awsume
-	source (asdf which awsume.fish) $argv
+	source ~/.local/bin/awsume.fish $argv
 end

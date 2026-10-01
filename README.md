@@ -62,6 +62,8 @@ direnv: unloading                            # venv deactivated
 
 Global CLI tools (yt-dlp etc.): `uv tool install yt-dlp`, each gets its own venv with the command in `~/.local/bin`. `uv tool upgrade --all` to update.
 
+awsume: `uv tool install awsume`. The `awsume` fish function sources `~/.local/bin/awsume.fish`, so use `awsume <profile>` and `awsume -u`.
+
 ### ssh-agent
 
 One agent shared by all shells, on a fixed socket (`$XDG_RUNTIME_DIR/ssh-agent.sock`). Every fish shell points `SSH_AUTH_SOCK` at it, except inside ssh sessions so agent forwarding keeps working.
