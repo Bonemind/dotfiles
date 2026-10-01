@@ -13,29 +13,17 @@ alias ls="ls --color=auto"
 alias sl="ls --color=auto"
 
 case "$(uname -s)" in
+	# macOS
 	Darwin)
 		export JAVA_HOME=$(/usr/libexec/java_home)
 		runfish
 		;;
+	# GNU/Linux
 	Linux)
-		export PATH=$PATH:/usr/local/sbin
-		export PATH=$PATH:/usr/sbin
-		export PATH=$PATH:/usr/bin
-		export PATH=$PATH:/sbin/
-		export PATH=$PATH:/usr/lib32
 		unset SSH_ASKPASS
 		runfish
 		;;
-	# Do something under GNU/Linux platform
+	# Windows (Cygwin, MinGW, MSYS)
 	CYGWIN*|MINGW32*|MSYS*)
-	;;
-	# Do something under Windows NT platform
+		;;
 esac
-
-
-
-# NVM
-if [ -s ~/.nvm/nvm.sh ]; then
-	NVM_DIR=~/.nvm
-	source ~/.nvm/nvm.sh
-fi
