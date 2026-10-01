@@ -17,10 +17,12 @@ Each top-level directory is a [GNU Stow](https://www.gnu.org/software/stow/) pac
 | `vim`      | Minimal vimrc, plugins as git submodules in `.vim/pack`   |
 | `tmux`     | tmux config, no plugins                                   |
 | `ctags`    | ctags defaults                                            |
+| `ripgrep`  | ripgrep defaults (smart case)                             |
+| `direnv`   | direnv helpers (`layout uv` for Python venvs)             |
 
 ## Setup
 
-Requires: `stow`, `fish`, `vim` (9.1+), `tmux`, `starship`, `direnv`, `asdf`.
+Requires: `stow`, `fish`, `vim` (9.1+), `tmux`, `ripgrep`, `starship`, `direnv`, `asdf`, `uv`.
 
 ```
 git clone --recurse-submodules git@github.com:Bonemind/dotfiles.git ~/dotfiles
@@ -52,6 +54,28 @@ Not tracked, picked up if present:
 
 - `~/.config/fish/config.fish.local`: extra PATH entries, env vars, per-machine aliases
 - `~/.gitconfig`: identity, commit signing and credential helpers differ per machine, so it's deliberately not in this repo
+
+### Python venvs
+
+Per project: direnv activates the project's `.venv` on `cd` and deactivates it when leaving. `layout uv` (in `direnvrc`) creates the venv with uv if it doesn't exist yet. `.envrc` is globally gitignored, so it stays local.
+
+```
+~/projects/foo $ echo 'layout uv' > .envrc
+~/projects/foo $ direnv allow
+direnv: loading .envrc
+Using CPython 3.14.2
+Creating virtual environment at: .venv
+direnv: export +VIRTUAL_ENV ~PATH
+
+~/projects/foo $ which python
+/home/bonemind/projects/foo/.venv/bin/python
+~/projects/foo $ uv pip install requests     # goes into .venv
+
+~/projects/foo $ cd ~
+direnv: unloading                            # venv deactivated
+```
+
+Global CLI tools (yt-dlp etc.): `uv tool install yt-dlp`, each gets its own venv with the command in `~/.local/bin`. `uv tool upgrade --all` to update.
 
 ### ssh-agent
 

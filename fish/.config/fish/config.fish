@@ -2,6 +2,7 @@ set -x -g LANG en_US.UTF-8
 set -x -g EDITOR vim
 set -e -g SSH_ASKPASS
 set fish_greeting ""
+set -x -g RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/config
 
 alias sls "serverless"
 alias tf "terraform"

@@ -1,0 +1,2 @@
+# Case-insensitive unless the pattern has an uppercase letter
+--smart-case

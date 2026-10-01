@@ -6,6 +6,8 @@ DIRS=(
 	"git"
 	"tmux"
 	"vim"
+	"ripgrep"
+	"direnv"
 )
 
 PARENT=$(dirname "$PWD")

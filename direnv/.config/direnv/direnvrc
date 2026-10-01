@@ -1,0 +1,6 @@
+# `layout uv` in an .envrc: create .venv with uv if missing, then activate it
+layout_uv() {
+	[[ -d .venv ]] || uv venv
+	export VIRTUAL_ENV="$PWD/.venv"
+	PATH_add .venv/bin
+}
