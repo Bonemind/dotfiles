@@ -5,18 +5,10 @@ DIRS=(
 	"fish"
 	"git"
 	"intellij"
-	"newsbeuter"
 	"nvim"
-	"qtile"
-	"ssh-ident"
 	"tmux"
 	"vim"
 	"vimcommon"
-	"i3"
-	"alacritty"
-	"dunst"
-	"polybar"
-	"scripts"
 )
 
 PARENT=$(dirname "$PWD")

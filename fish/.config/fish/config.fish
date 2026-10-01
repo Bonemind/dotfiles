@@ -32,15 +32,6 @@ else
 	set -x FZF_TMUX 1
 end
 
-# set -x LOCALSSHIDENTPATH $HOME/dotfiles/submodules/ssh-ident/ssh-ident
-# if test -e $LOCALSSHIDENTPATH
-# 	set -x SSH_ADD_DEFAULT_OPTIONS "-t 300"
-# 	set -x GIT_SSH_COMMAND $LOCALSSHIDENTPATH
-# 	set -x ANSIBLE_SSH_EXECUTABLE $LOCALSSHIDENTPATH
-# else
-# 	echo "Missing ssh-ident submodule in dotfiles"
-# end
-
 set LOCALCONFIG $HOME/.config/fish/config.fish.local
 if test -e $LOCALCONFIG
 	source $LOCALCONFIG
