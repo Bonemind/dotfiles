@@ -4,7 +4,6 @@ DIRS=(
 	"ctags"
 	"fish"
 	"git"
-	"intellij"
 	"tmux"
 	"vim"
 )
@@ -34,6 +33,18 @@ then
 		stow $dir
 	done
 	echo Done
+
+	# Point out directories that exist but aren't in DIRS
+	SKIPPED=()
+	for dir in */
+	do
+		dir=${dir%/}
+		[[ " ${DIRS[*]} " == *" $dir "* ]] || SKIPPED+=("$dir")
+	done
+	if [ ${#SKIPPED[@]} -gt 0 ]
+	then
+		echo "Not stowed, not in package list: ${SKIPPED[*]}"
+	fi
 else
 	echo Aborting...
 fi

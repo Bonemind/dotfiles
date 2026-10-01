@@ -3,6 +3,7 @@
 
 PS1='[\u@\h \W]\$ '
 
+# Login shell stays bash (some ssh tooling chokes on fish), interactive shells hop to fish
 runfish() {
 	if hash fish 2>/dev/null; then
 		fish
