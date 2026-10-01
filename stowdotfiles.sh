@@ -9,6 +9,9 @@ DIRS=(
 	"direnv"
 )
 
+# Commands the configs call, incl. ones without their own package (starship, asdf, uv via fish/direnv)
+REQUIRES=(fish vim tmux rg starship direnv asdf uv)
+
 PARENT=$(dirname "$PWD")
 
 if ! hash stow 2>/dev/null; then
@@ -45,6 +48,16 @@ then
 	if [ ${#SKIPPED[@]} -gt 0 ]
 	then
 		echo "Not stowed, not in package list: ${SKIPPED[*]}"
+	fi
+
+	MISSING=()
+	for cmd in "${REQUIRES[@]}"
+	do
+		hash "$cmd" 2>/dev/null || MISSING+=("$cmd")
+	done
+	if [ ${#MISSING[@]} -gt 0 ]
+	then
+		echo "Missing commands: ${MISSING[*]}"
 	fi
 else
 	echo Aborting...

@@ -5,23 +5,9 @@ Dotfile repository
 
 There are many like it, but this one is mine
 
-## What's in here
-
-Each top-level directory is a [GNU Stow](https://www.gnu.org/software/stow/) package, mirroring the layout under `~`.
-
-| Package    | What                                                      |
-| ---------- | --------------------------------------------------------- |
-| `bash`     | Minimal bashrc that hands interactive shells over to fish |
-| `fish`     | Main shell config, git helpers, `ssh_agent`               |
-| `git`      | Global gitignore (`~/.config/git/ignore`)                 |
-| `vim`      | Minimal vimrc, plugins as git submodules in `.vim/pack`   |
-| `tmux`     | tmux config, no plugins                                   |
-| `ripgrep`  | ripgrep defaults (smart case)                             |
-| `direnv`   | direnv helpers (`layout uv` for Python venvs)             |
-
 ## Setup
 
-Requires: `stow`, `fish`, `vim` (9.1+), `tmux`, `ripgrep`, `starship`, `direnv`, `asdf`, `uv`.
+Needs `stow` and `git`. The tools the configs use are listed in `REQUIRES` in `stowdotfiles.sh`, which warns about any that are missing after stowing. vim needs to be 9.1+.
 
 ```
 git clone --recurse-submodules git@github.com:Bonemind/dotfiles.git ~/dotfiles
