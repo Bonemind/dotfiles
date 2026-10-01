@@ -9,7 +9,6 @@ runfish() {
 	fi
 }
 
-alias tmux="tmux -2"
 alias ls="ls --color=auto"
 alias sl="ls --color=auto"
 

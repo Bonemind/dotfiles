@@ -3,10 +3,6 @@ set -x -g EDITOR vim
 set -e -g SSH_ASKPASS
 set fish_greeting ""
 
-function tmux
-	command tmux -2 $argv
-end
-
 alias sls "serverless"
 alias tf "terraform"
 alias k "kubectl"

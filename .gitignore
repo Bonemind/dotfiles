@@ -8,6 +8,4 @@ Session.vim
 *fish_history
 *fishd.*
 node_modules/
-tmux/.tmux/plugins/*
-tmux/.tmux/resurrect
 fish_variables
