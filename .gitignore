@@ -7,7 +7,6 @@ Session.vim
 
 *fish_history
 *fishd.*
-fish/.config/fish/functions/fzf_key_bindings.fish
 node_modules/
 tmux/.tmux/plugins/*
 tmux/.tmux/resurrect
