@@ -1,7 +1,6 @@
 #!/bin/bash
 DIRS=(
 	"bash"
-	"ctags"
 	"fish"
 	"git"
 	"tmux"

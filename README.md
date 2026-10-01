@@ -16,7 +16,6 @@ Each top-level directory is a [GNU Stow](https://www.gnu.org/software/stow/) pac
 | `git`      | Global gitignore (`~/.config/git/ignore`)                 |
 | `vim`      | Minimal vimrc, plugins as git submodules in `.vim/pack`   |
 | `tmux`     | tmux config, no plugins                                   |
-| `ctags`    | ctags defaults                                            |
 | `ripgrep`  | ripgrep defaults (smart case)                             |
 | `direnv`   | direnv helpers (`layout uv` for Python venvs)             |
 
