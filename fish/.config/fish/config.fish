@@ -2,8 +2,7 @@
 set -q XDG_DATA_HOME
 
 set -x -g LANG en_US.UTF-8
-set -x -g EDITOR (which nvim)
-# set -x -g SHELL (which nvim)
+set -x -g EDITOR vim
 set -e -g SSH_ASKPASS
 set -x -g XML_CATALOG_FILES /usr/local/etc/xml/catalog
 set fish_greeting ""

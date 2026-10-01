@@ -1,22 +1,105 @@
-filetype off
+" Minimal vimrc: bundled vim 9.x packages + vim-surround (submodule in ~/.vim/pack)
 
-" Set dein variables
-let deinpath=expand('~/.vim/vimplugins/dein.vim/repos/github.com/Shougo/dein.vim')
-let deinpluginpath=expand('~/.vim/vimplugins/deinplugins')
+" Bundled packages
+packadd! comment       " gc / gcc to toggle comments
+packadd! editorconfig  " respect .editorconfig files
+packadd! matchit       " % jumps between if/else, tags, etc.
+packadd! hlyank        " briefly highlight yanked text
 
-" Add dein to runtimepath
-execute 'set runtimepath^=' . deinpath
+filetype plugin indent on
+syntax on
 
-function AddSpecificPlugins()
- call dein#add('Shougo/neocomplete.vim', { 'rev': '0dbc6e4594db2e7fdd4c71b93e67b51e26c9c258' })
-endfunction
+" Appearance
+set background=light
+colorscheme lunaperche
+set number
+set relativenumber
+set cursorline
+set cursorcolumn
+set laststatus=2
+set showcmd
+set list
+set listchars=tab:░\ ,trail:·,extends:»,precedes:«,nbsp:⣿
 
-source ~/.config/vimcommon/common.vim
+" Behaviour
+set hidden
+set backspace=indent,eol,start
+set scrolloff=8
+set wildmenu
+set wildoptions=pum,fuzzy
 
-echom 'You have started vim again, start nvim instead'
+" Indentation
+set autoindent
+set copyindent
+set tabstop=3
+set shiftwidth=3
 
-"NeoComplCache
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 1
-let g:neocomplete#enable_fuzzy_completion = 1
-let g:neocomplete#max_list = 10
+" Search
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set showmatch
+
+" No swap/backup clutter, but keep persistent undo
+set noswapfile
+set nobackup
+set nowritebackup
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" Folding: indent-based, open by default
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+
+augroup vimrc
+  autocmd!
+  " Set working directory to current file
+  autocmd BufEnter * silent! lcd %:p:h
+  autocmd FileType markdown setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+augroup END
+
+" Keys
+nnoremap <silent> <leader>bn :bn<CR>
+nnoremap <silent> <leader>bp :bp<CR>
+nnoremap <silent> <leader>bd :bd<CR>
+nnoremap <silent> <leader>ev :edit $MYVIMRC<CR>
+
+" Tab indents
+nnoremap <silent> <Tab> >>
+vnoremap <silent> <Tab> >gv
+nnoremap <silent> <S-Tab> <<
+vnoremap <silent> <S-Tab> <gv
+
+" H and L as stronger h and l
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
+" No arrow keys
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+inoremap jj <Esc>
+tnoremap jj <C-\><C-n>
+
+" Common typos
+cnoreabbrev W w
+cnoreabbrev Wa wa
+cnoreabbrev WA wa
+cnoreabbrev Q q
+cnoreabbrev Qa qa
+cnoreabbrev QA qa
+
+command! Wsudo w !sudo tee > /dev/null %

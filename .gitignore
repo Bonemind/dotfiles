@@ -1,12 +1,9 @@
 *.local
 
-vim/.vim/bundle
-vim/.vim/vimplugins
-vimcommon/.config/vimcommon/undodir/*
+vim/.vim/undodir/*
+!vim/.vim/undodir/.gitkeep
 
 Session.vim
-
-nvim/.config/nvim/nvimplugins
 
 *fish_history
 *fishd.*
