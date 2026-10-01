@@ -7,7 +7,7 @@ There are many like it, but this one is mine
 
 ## Setup
 
-Needs `stow` and `git`. The tools the configs use are listed in `REQUIRES` in `stowdotfiles.sh`, which warns about any that are missing after stowing. vim needs to be 9.1+.
+Needs `stow` and `git`. The tools these dotfiles rely on are listed in `REQUIRES` in `stowdotfiles.sh`, which warns about any that are missing after stowing. vim needs to be 9.1+.
 
 ```
 git clone --recurse-submodules git@github.com:Bonemind/dotfiles.git ~/dotfiles

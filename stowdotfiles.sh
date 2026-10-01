@@ -9,8 +9,8 @@ DIRS=(
 	"direnv"
 )
 
-# Commands the configs call, incl. ones without their own package (starship, asdf, uv via fish/direnv)
-REQUIRES=(fish vim tmux rg starship direnv asdf uv)
+# Commands I rely on, whether or not a config calls them (tealdeer = tldr, wslu = wslview)
+REQUIRES=(fish vim tmux rg starship direnv asdf uv zoxide tldr wslview)
 
 PARENT=$(dirname "$PWD")
 

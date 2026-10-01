@@ -4,9 +4,9 @@ set -e -g SSH_ASKPASS
 set fish_greeting ""
 set -x -g RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/config
 
-alias sls "serverless"
-alias tf "terraform"
-alias k "kubectl"
+abbr sls "serverless"
+abbr tf "terraform"
+abbr k "kubectl"
 
 # Git Abbrs
 abbr gits "git status"
@@ -35,6 +35,8 @@ end
 direnv hook fish | source
 
 starship init fish | source
+
+zoxide init fish | source
 
 # ASDF configuration code
 if test -z $ASDF_DATA_DIR
